@@ -1,9 +1,9 @@
 # rigtech.dev
 
-Static site for RIG Tech LLC on Cloudflare Pages. Plain HTML/CSS/JS, no build step.
+Static site for RIG Tech LLC, deployed as a Cloudflare Worker with static assets (`wrangler.jsonc`). Plain HTML/CSS/JS, no build step.
 
 ```
-public/                 ← deployed (Pages "build output directory")
+public/                 ← deployed (assets.directory in wrangler.jsonc)
   index.html            /
   coinop.html           /coinop
   coinop/privacy.html   /coinop/privacy
@@ -14,14 +14,16 @@ public/                 ← deployed (Pages "build output directory")
   404.html              served for any unknown path
   app-ads.txt           /app-ads.txt
   assets/               site.css, site.js, contact.js + images (see READMEs)
-functions/api/contact.js  POST /api/contact (Pages Function → Resend)
+functions/api/contact.js  POST /api/contact handler (Pages Function format; NOT run by the Worker yet)
 ```
 
-Cloudflare Pages serves `foo.html` at `/foo` (it redirects `/foo.html` to `/foo`).
+`foo.html` is served at `/foo` (`/foo.html` redirects). Unknown paths get `404.html`.
+`public/_headers` sets headers; `public/.assetsignore` keeps the READMEs from being published.
 
 ## Local preview
 
-    npx wrangler pages dev public
+    npx wrangler dev        # preview
+    npx wrangler deploy     # deploy
 
 For the contact form locally, create `.dev.vars` (gitignored) with:
 

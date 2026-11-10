@@ -1,0 +1,14 @@
+// Cloudflare Worker serving the static site from ./public (no Worker script).
+// Docs: https://developers.cloudflare.com/workers/static-assets/
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "rigtech-dev",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    // Serve public/404.html (with a 404 status) for any path that doesn't match a file.
+    "not_found_handling": "404-page",
+    // coinop.html -> /coinop, coinop/privacy.html -> /coinop/privacy (the default, stated explicitly).
+    "html_handling": "auto-trailing-slash"
+  }
+}

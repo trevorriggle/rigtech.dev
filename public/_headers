@@ -1,0 +1,3 @@
+# Explicit content type for AdMob's crawler.
+/app-ads.txt
+  Content-Type: text/plain; charset=utf-8
