@@ -10,11 +10,12 @@ public/                 ← deployed (assets.directory in wrangler.jsonc)
   coinop/terms.html     /coinop/terms
   coinop/support.html   /coinop/support
   thoosie.html          /thoosie
-  contact.html          /contact
+  contact.html          /contact (email-only for now)
   404.html              served for any unknown path
   app-ads.txt           /app-ads.txt
   assets/               site.css, site.js, contact.js + images (see READMEs)
-functions/api/contact.js  POST /api/contact handler (Pages Function format; NOT run by the Worker yet)
+functions/api/contact.js  parked contact-form handler, not run yet (see parked/README.md)
+parked/                   parked contact form page (not deployed)
 ```
 
 `foo.html` is served at `/foo` (`/foo.html` redirects). Unknown paths get `404.html`.
