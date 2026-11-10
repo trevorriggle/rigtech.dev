@@ -1,0 +1,253 @@
+/* RIG Tech — shared stylesheet. One signature animation (wordmark cursor); nothing else moves. */
+
+:root {
+  --bg: #0d0e11;
+  --surface: #15171c;
+  --line: #2a2d35;
+  --fg: #e9e7e2;
+  --muted: #9b9ca3;
+  --accent: #ffb547;
+  --accent-ink: #1a1305;
+  --max: 960px;
+  --radius: 10px;
+  --display: "Tomorrow", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+main { flex: 1; }
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:hover { color: var(--fg); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.2; letter-spacing: 0.01em; }
+h1 { font-size: clamp(1.75rem, 1.2rem + 2.4vw, 2.6rem); margin: 0 0 0.5rem; }
+h2 { font-size: 1.35rem; margin: 2.75rem 0 1rem; }
+h3 { font-size: 1.1rem; margin: 0 0 0.25rem; }
+
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: 20px; }
+
+/* ---------- Header + wordmark ---------- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 22px;
+}
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+  text-decoration: none;
+  white-space: nowrap;
+  min-height: 1.6em;
+}
+.wordmark:hover { color: var(--fg); }
+.wm-cursor {
+  display: inline-block;
+  width: 0.11em;
+  height: 1.05em;
+  margin-left: 0.14em;
+  background: var(--accent);
+  animation: wm-blink 1.06s step-end infinite;
+}
+@keyframes wm-blink { 50% { opacity: 0; } }
+/* While waiting to type: hide text, cursor sits at the start, solid. */
+.wm-pending .wm-text { display: none; }
+.wm-pending .wm-cursor, .wm-typing .wm-cursor { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  .wm-cursor { animation: none; }
+}
+
+.site-nav { display: flex; gap: 22px; }
+.site-nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--fg); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-top: 72px;
+  padding-block: 28px 36px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.site-footer p { margin: 0; }
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--fg); }
+
+/* ---------- Home ---------- */
+.hero { padding-block: 48px 8px; }
+.hero h1 { max-width: 22ch; }
+.lede { color: var(--muted); font-size: 1.05rem; margin: 0; max-width: 60ch; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 12px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 4px);
+  color: var(--fg);
+  text-decoration: none;
+}
+.card:hover { border-color: var(--muted); color: var(--fg); }
+.card .ph { border-radius: var(--radius); }
+.card-body { padding-inline: 6px; }
+.card p { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.95rem; }
+.tag {
+  display: inline-block;
+  font: 500 0.75rem/1 var(--mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.tag.ext::after { content: " \2197"; }
+
+/* ---------- Image placeholders ----------
+   .ph shows a labeled box until its <img> loads; then the image covers it.
+   Set --ar on the element for the aspect ratio. */
+.ph {
+  position: relative;
+  aspect-ratio: var(--ar, 16 / 9);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 10px;
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font: 0.75rem/1.4 var(--mono);
+  text-align: center;
+}
+.ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ph.loaded { border-style: solid; }
+.ph.loaded .ph-label { visibility: hidden; }
+
+.shots { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.shots.portrait { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); --ar: 9 / 19.5; }
+.shots .wide { grid-column: 1 / -1; }
+
+/* ---------- Game pages ---------- */
+.game-head { display: flex; align-items: center; gap: 20px; padding-block: 40px 8px; flex-wrap: wrap; }
+.game-head .ph { --ar: 1; width: 96px; border-radius: 22px; padding: 4px; font-size: 0.65rem; }
+.game-head h1 { margin: 0; }
+.game-head .tag { margin-top: 6px; }
+
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 24px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font: 600 1rem/1 var(--display);
+  color: var(--fg);
+  text-decoration: none;
+}
+.btn:hover { border-color: var(--muted); color: var(--fg); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+.btn-lg { min-height: 60px; padding: 0 34px; font-size: 1.2rem; }
+
+/* App Store badge placeholder (swap for Apple's official badge when live). */
+.badge {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 52px;
+  padding: 6px 18px;
+  border: 1px solid var(--muted);
+  border-radius: 10px;
+  background: #000;
+  color: var(--fg);
+  line-height: 1.15;
+}
+.badge small { font-size: 0.7rem; color: var(--muted); }
+.badge strong { font-size: 1.05rem; font-weight: 600; }
+
+.links-row { display: flex; flex-wrap: wrap; gap: 8px 22px; padding: 0; margin: 0; list-style: none; }
+
+.credits { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.credits span { color: var(--muted); }
+
+/* ---------- Prose (legal, support) ---------- */
+.prose { max-width: 70ch; padding-top: 32px; }
+.prose h2 { font-size: 1.15rem; margin: 2.25rem 0 0.6rem; }
+.prose h3 { font-size: 1rem; margin: 1.5rem 0 0.4rem; }
+.prose ul { padding-left: 1.3rem; }
+.prose li + li { margin-top: 0.35rem; }
+.meta { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.crumbs { font-size: 0.9rem; color: var(--muted); margin: 0 0 12px; }
+.crumbs a { color: var(--muted); }
+.callout {
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  background: var(--surface);
+}
+.faq dt { font-weight: 600; margin-top: 1.4rem; }
+.faq dd { margin: 0.3rem 0 0; color: var(--fg); }
+
+/* ---------- 404 ---------- */
+.notfound { padding-block: 72px 24px; }
+.notfound .code { font: 600 0.9rem/1 var(--mono); color: var(--accent); margin: 0 0 12px; }
+
+@media (max-width: 480px) {
+  .site-nav { gap: 16px; }
+  .wordmark { font-size: 1.25rem; }
+}
+
+/* ---------- Forms (contact) ---------- */
+.form { display: grid; gap: 18px; margin-top: 28px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 0.9rem; color: var(--muted); }
+.form input, .form select, .form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--fg);
+  font: inherit;
+}
+.form textarea { resize: vertical; min-height: 9rem; }
+.form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--accent); }
+.form [aria-invalid="true"] { border-color: #ff6b6b; }
+.form .actions { margin-top: 4px; }
+.btn:disabled { opacity: 0.6; cursor: wait; }
+button.btn { cursor: pointer; }
+.form-status { margin: 0; padding: 12px 16px; border: 1px solid #ff6b6b; border-radius: 6px; color: #ffc9c9; background: #2a1517; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+#cf-success { margin-top: 28px; }
+#cf-success h2 { margin-top: 0.25rem; }
