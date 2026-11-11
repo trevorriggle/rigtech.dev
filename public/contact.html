@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RIG Tech">
 <meta property="og:title" content="Contact RIG Tech">
-<meta property="og:description" content="Questions, support, or business: email hello@rigtech.dev.">
+<meta property="og:description" content="Questions, support, or business: send us a message.">
 <meta property="og:url" content="https://rigtech.dev/contact">
 <meta property="og:image" content="https://rigtech.dev/assets/og-default.png">
 <meta property="og:image:width" content="1200">
@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@500;600&display=swap">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/site.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="/assets/contact.js" defer></script>
 </head>
 <body>
 <header class="site-header wrap">
@@ -29,14 +31,54 @@
   <nav class="site-nav" aria-label="Main"><a href="/#games">Games</a><a href="/contact" aria-current="page">Contact</a></nav>
 </header>
 
-<!-- Temporary email-only contact page. The form version lives in parked/contact-form.html
-     (see parked/README.md for how to bring it back). -->
 <main class="wrap">
 <div class="prose">
   <h1>Contact</h1>
-  <p class="lede">Questions, bugs, feedback or business, all to one inbox:</p>
-  <p class="contact-email"><a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a></p>
-  <p class="meta">We read everything and usually reply within a few days. For CoinOp problems, include your iPhone model, iOS version, and the app version (shown in Settings). Check the <a href="/coinop/support">CoinOp FAQ</a> first, too.</p>
+  <p class="lede">Questions, bugs, feedback or business. Send a message and we'll get back to you. Prefer email? Write to <a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a>.</p>
+
+  <form class="form" id="contact-form" action="/api/contact" method="post" novalidate>
+    <div class="field">
+      <label for="cf-name">Name</label>
+      <input id="cf-name" name="name" type="text" autocomplete="name" required maxlength="100">
+    </div>
+    <div class="field">
+      <label for="cf-email">Email</label>
+      <input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="254">
+    </div>
+    <div class="field">
+      <label for="cf-subject">Subject</label>
+      <select id="cf-subject" name="subject" required>
+        <option value="general">General</option>
+        <option value="coinop">CoinOp support</option>
+        <option value="thoosie">thoosie</option>
+        <option value="business">Business</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="cf-message">Message</label>
+      <textarea id="cf-message" name="message" rows="7" required minlength="10" maxlength="5000"></textarea>
+    </div>
+
+    <!-- Honeypot: hidden from people, bots fill it in. Leave the name generic. -->
+    <div class="hp" aria-hidden="true">
+      <label for="cf-website">Website</label>
+      <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAF8zSBI82qx719d9" data-theme="dark"></div>
+
+    <p class="form-status" id="cf-status" role="alert" hidden></p>
+
+    <div class="actions">
+      <button class="btn btn-primary" type="submit" id="cf-submit">Send message</button>
+    </div>
+    <noscript><p class="meta">The form needs JavaScript for spam protection. You can always email <a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a>.</p></noscript>
+  </form>
+
+  <div class="callout" id="cf-success" tabindex="-1" hidden>
+    <h2>Message sent.</h2>
+    <p>Thanks for writing. We'll reply to the email address you gave, usually within a few days.</p>
+  </div>
 </div>
 </main>
 

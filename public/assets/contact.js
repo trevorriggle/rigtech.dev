@@ -1,4 +1,4 @@
-/* Contact form: client-side checks, then POST to /api/contact (Cloudflare Pages Function). */
+/* Contact form: client-side checks, then POST to /api/contact (src/worker.js). */
 (function () {
   var form = document.getElementById("contact-form");
   if (!form) return;

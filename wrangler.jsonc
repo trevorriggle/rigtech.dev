@@ -1,11 +1,15 @@
-// Cloudflare Worker serving the static site from ./public (no Worker script).
+// Cloudflare Worker: static site from ./public, plus src/worker.js for /api/* (the contact form).
 // Docs: https://developers.cloudflare.com/workers/static-assets/
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "rigtech-dev",
   "compatibility_date": "2026-11-01",
+  "main": "src/worker.js",
   "assets": {
     "directory": "./public",
+    "binding": "ASSETS",
+    // Only /api/* reaches the Worker script; everything else is served as a static file.
+    "run_worker_first": ["/api/*"],
     // Serve public/404.html (with a 404 status) for any path that doesn't match a file.
     "not_found_handling": "404-page",
     // coinop.html -> /coinop, coinop/privacy.html -> /coinop/privacy (the default, stated explicitly).

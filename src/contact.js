@@ -1,11 +1,11 @@
 /**
- * POST /api/contact  (Cloudflare Pages Function)
+ * POST /api/contact  (called from src/worker.js)
  *
  * Verifies a Turnstile token, checks a honeypot, validates input, rate-limits
  * per IP, then sends the message via Resend to hello@rigtech.dev with
  * reply-to set to the sender.
  *
- * Environment (set in Cloudflare dashboard; never commit):
+ * Environment (Workers & Pages → rigtech-dev → Settings → Variables and Secrets; never commit):
  *   RESEND_API_KEY        secret
  *   TURNSTILE_SECRET_KEY  secret
  * Optional binding:
@@ -64,7 +64,7 @@ async function verifyTurnstile(secret, token, ip) {
 
 const oneLine = (s) => s.replace(/[\r\n]+/g, " ").trim();
 
-export async function onRequestPost({ request, env }) {
+export async function handleContact(request, env) {
   if (!env.RESEND_API_KEY || !env.TURNSTILE_SECRET_KEY) {
     console.error("contact: RESEND_API_KEY or TURNSTILE_SECRET_KEY is not set");
     return fail(500, "The contact form isn't set up yet. Please email hello@rigtech.dev.");

@@ -1,6 +1,7 @@
 # rigtech.dev
 
 Static site for RIG Tech LLC, deployed as a Cloudflare Worker with static assets (`wrangler.jsonc`). Plain HTML/CSS/JS, no build step.
+The only server code is `src/worker.js`, which handles `POST /api/contact`; every other path is a static file.
 
 ```
 public/                 ← deployed (assets.directory in wrangler.jsonc)
@@ -10,12 +11,12 @@ public/                 ← deployed (assets.directory in wrangler.jsonc)
   coinop/terms.html     /coinop/terms
   coinop/support.html   /coinop/support
   thoosie.html          /thoosie
-  contact.html          /contact (email-only for now)
+  contact.html          /contact (form, posts to /api/contact)
   404.html              served for any unknown path
   app-ads.txt           /app-ads.txt
   assets/               site.css, site.js, contact.js + images (see READMEs)
-functions/api/contact.js  parked contact-form handler, not run yet (see parked/README.md)
-parked/                   parked contact form page (not deployed)
+src/worker.js           Worker entry: /api/contact → src/contact.js, everything else → static assets
+src/contact.js          contact handler (Turnstile, honeypot, validation, rate limit, sends via Resend)
 ```
 
 `foo.html` is served at `/foo` (`/foo.html` redirects). Unknown paths get `404.html`.
@@ -25,6 +26,9 @@ parked/                   parked contact form page (not deployed)
 
     npx wrangler dev        # preview
     npx wrangler deploy     # deploy
+
+Contact form secrets (production): set `RESEND_API_KEY` and `TURNSTILE_SECRET_KEY` with
+`npx wrangler secret put …` or in the dashboard (Workers & Pages → rigtech-dev → Settings → Variables and Secrets).
 
 For the contact form locally, create `.dev.vars` (gitignored) with:
 
