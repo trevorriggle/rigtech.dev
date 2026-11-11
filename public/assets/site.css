@@ -216,6 +216,13 @@ h3 { font-size: 1.1rem; margin: 0 0 0.25rem; }
   border-radius: 6px;
   background: var(--surface);
 }
+.callout > :first-child { margin-top: 0; }
+.callout > :last-child { margin-bottom: 0; }
+.prose .caps { font-weight: 600; }
+.table-scroll { overflow-x: auto; margin: 0.5rem 0 1rem; }
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.prose th, .prose td { text-align: left; vertical-align: top; padding: 8px 10px 8px 0; border-bottom: 1px solid var(--line); }
+.prose th { color: var(--muted); font-weight: 600; }
 .faq dt { font-weight: 600; margin-top: 1.4rem; }
 .faq dd { margin: 0.3rem 0 0; color: var(--fg); }
 
