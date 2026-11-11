@@ -16,7 +16,7 @@ const TO = "hello@rigtech.dev";
 const FROM = "RIG Tech website <noreply@rigtech.dev>";
 const SUBJECTS = {
   general: "General",
-  coinop: "Coin-Op support",
+  coinop: "CoinOp support",
   thoosie: "thoosie",
   business: "Business",
 };

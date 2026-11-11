@@ -1,12 +1,12 @@
-# Coin-Op images
+# CoinOp images
 
 Use these exact filenames (lowercase). Until a file exists, the page shows a labeled placeholder box in its place.
 
 | File | Size | Ratio | Where it shows |
 |---|---|---|---|
-| `icon.png` | 512×512 | 1:1, square, opaque (no transparency; corners are rounded by CSS) | Coin-Op page header |
-| `card.jpg` | 1200×675 | 16:9 | Coin-Op card on the home page |
-| `screenshot-1.jpg` | 645×1398 | 9:19.5 portrait (iPhone) | Coin-Op page screenshot grid |
+| `icon.png` | 512×512 | 1:1, square, opaque (no transparency; corners are rounded by CSS) | CoinOp page header |
+| `card.jpg` | 1200×675 | 16:9 | CoinOp card on the home page |
+| `screenshot-1.jpg` | 645×1398 | 9:19.5 portrait (iPhone) | CoinOp page screenshot grid |
 | `screenshot-2.jpg` | 645×1398 | 9:19.5 portrait | ″ |
 | `screenshot-3.jpg` | 645×1398 | 9:19.5 portrait | ″ |
 | `screenshot-4.jpg` | 645×1398 | 9:19.5 portrait | ″ |

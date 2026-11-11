@@ -14,4 +14,4 @@ These files aren't deployed or run right now. `/contact` is a simple email-only 
 2. Set the secrets `RESEND_API_KEY` and `TURNSTILE_SECRET_KEY`
    (Workers & Pages → rigtech-dev → Settings → Variables and Secrets, or `npx wrangler secret put …`).
 3. Paste the Turnstile site key into `contact-form.html`, then move it back to `public/contact.html`.
-4. Optionally, point the Coin-Op support page link to `/contact?subject=coinop` (it preselects the subject).
+4. Optionally, point the CoinOp support page link to `/contact?subject=coinop` (it preselects the subject).
