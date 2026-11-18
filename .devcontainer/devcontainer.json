@@ -3,7 +3,9 @@
     "codespaces": {
       "repositories": {
         "trevorriggle/coin-op-iOS": { "permissions": { "contents": "read" } },
-        "trevorriggle/DrawEvolve": { "permissions": { "contents": "read" } }
+        "trevorriggle/DrawEvolve": { "permissions": { "contents": "read" } },
+        "trevorriggle/thoosie": { "permissions": { "contents": "read" } },
+        "trevorriggle/DeadMallTycoon": { "permissions": { "contents": "read" } }
       }
     }
   }
