@@ -1,0 +1,10 @@
+{
+  "customizations": {
+    "codespaces": {
+      "repositories": {
+        "trevorriggle/coin-op-iOS": { "permissions": { "contents": "read" } },
+        "trevorriggle/DrawEvolve": { "permissions": { "contents": "read" } }
+      }
+    }
+  }
+}
