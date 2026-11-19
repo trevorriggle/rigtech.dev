@@ -54,6 +54,7 @@ h1 { font-size: clamp(2.4rem, 1.4rem + 5vw, 5.25rem); font-weight: 700; }
 h2 { font-size: clamp(1.8rem, 1.2rem + 2.6vw, 3rem); }
 h3 { font-size: clamp(1.35rem, 1.1rem + 1vw, 1.75rem); }
 p { margin: 0 0 1em; }
+[hidden] { display: none !important; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 .wrap { width: 100%; max-width: var(--stage); margin-inline: auto; padding-inline: var(--gutter); }
@@ -210,6 +211,7 @@ button.btn { font-family: var(--display); }
   color: var(--cab-text);
   border-block: 2px solid var(--ink);
   overflow: hidden;
+  overflow: clip; /* clip, not hidden: hidden would break the sticky gallery inside */
   isolation: isolate;
 }
 /* Faint CRT scanlines: this panel is meant to be a screen. */
@@ -466,7 +468,8 @@ button.btn { font-family: var(--display); }
 }
 
 /* Trailer: vertical video in a pixel frame; poster + label until the file exists. */
-.trailer { position: relative; margin: 0 auto; max-width: 360px; }
+.trailer { position: relative; margin: 0 auto; max-width: min(300px, 78vw); }
+@media (min-width: 62rem) { .trailer { max-width: 380px; } }
 .trailer video { width: 100%; height: auto; aspect-ratio: 886 / 1920; background: #000; object-fit: cover; }
 .trailer-note { display: none; position: absolute; left: 12px; right: 12px; bottom: 12px; padding: 10px 12px; background: var(--gold); color: var(--ink); border: 2px solid var(--ink); font: 400 1.15rem/1.1 var(--pixel); letter-spacing: 0.05em; text-transform: uppercase; text-align: center; }
 .trailer.missing .trailer-note { display: block; }
@@ -477,13 +480,13 @@ button.btn { font-family: var(--display); }
 
 /* "What makes it different": numbered editorial list, not cards. */
 .diff { list-style: none; margin: 0; padding: 0; display: grid; border-top: 2px solid var(--ink); }
-.diff li { display: grid; grid-template-columns: 5.2rem 1fr; gap: 4px 16px; padding-block: 22px; border-bottom: 1px solid var(--rule); }
-.diff-n { grid-row: span 2; font: 700 clamp(2rem, 1.6rem + 1.6vw, 3rem)/0.9 var(--display); color: var(--orange); letter-spacing: -0.02em; }
+.diff li { display: grid; grid-template-columns: 6rem 1fr; gap: 4px 16px; padding-block: 22px; border-bottom: 1px solid var(--rule); }
+.diff-n { grid-row: span 2; font: 700 clamp(1.9rem, 1.5rem + 1.4vw, 2.8rem)/0.9 var(--display); white-space: nowrap; color: var(--orange); letter-spacing: -0.02em; }
 .diff h3 { font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem); margin: 0; }
 .diff p { margin: 6px 0 0; color: var(--ink-2); max-width: 52ch; }
 @media (min-width: 62rem) {
   .diff { grid-template-columns: 1fr 1fr; column-gap: 48px; }
-  .diff li { grid-template-columns: 7rem 1fr; padding-block: 30px; }
+  .diff li { grid-template-columns: 8.5rem 1fr; padding-block: 30px; }
 }
 
 .facts { display: grid; grid-template-columns: max-content 1fr; gap: 0 20px; margin: 0; border-top: 2px solid var(--ink); }
@@ -579,3 +582,12 @@ button.btn { font-family: var(--display); }
   .contact-grid > .prose { grid-column: 1 / span 7; }
   .contact-aside { grid-column: 9 / span 4; padding-top: clamp(32px, 6vw, 64px); }
 }
+
+/* ---------- CoinOp page ---------- */
+.launch-text .launch-date { display: inline-block; margin-bottom: 6px; }
+.gallery-band { margin-top: clamp(64px, 10vw, 128px); padding-bottom: clamp(48px, 8vw, 96px); }
+.gallery-band .sec-head { border-color: var(--cab-line); }
+.gallery-band .sec-head p { color: var(--cab-mute); }
+.gallery-band::after { display: none; }
+.on-dark .seq-plate { border-color: var(--cab-line); }
+.sec-head + .diff { border-top: 0; }

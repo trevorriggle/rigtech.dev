@@ -1,8 +1,8 @@
 # rigtech.dev overhaul: work queue
 
 ## HANDOFF
-- **Done:** Q1–Q6 (assets, design system, carousel, home)
-- **Next:** Q7 CoinOp page, then Q8 press, Q9 thoosie, Q10 restyles, Q11 meta/OG
+- **Done:** Q1–Q7 (assets, design system, carousel, home, CoinOp)
+- **Next:** Q8 press, Q9 thoosie, Q10 restyles, Q11 meta/OG
 - **Local preview:** `npx wrangler dev --port 8787`; review screenshots via Playwright (scratch tooling, not committed)
 - **Open decisions:** see the Decisions log at the bottom.
 
@@ -16,7 +16,7 @@
 | Q4 | New design system: site.css, fonts, header/footer, buttons | DONE (Q6 commit) |
 | Q5 | Port the portfolio's scroll-sequence carousel (DrawEvolve) as a shared gallery component (`.seq`) | DONE (Q6 commit) |
 | Q6 | Home page (/), 3 review rounds, screens in docs/site-screens | DONE (see git log) |
-| Q7 | CoinOp launch page (/coinop) | TODO |
+| Q7 | CoinOp launch page (/coinop), 3 review rounds | DONE (see git log) |
 | Q8 | CoinOp press kit (/coinop/press) + downloads | TODO |
 | Q9 | thoosie page (/thoosie) | TODO |
 | Q10 | Restyle /contact, /coinop/support, /privacy, /terms, 404 (policy text unchanged) | TODO |
@@ -34,3 +34,7 @@
 - Dead Mall Tycoon's in-repo gameplay captures are low-res HUD mockups, so its card is built from its own pixel tiles (storefronts, floor) and logo instead. DrawEvolve included with the ported sequence; it's an app, labelled "Not a game".
 - Review screenshots are taken with reduced motion for full-page captures (the pinned sequence can't render in a full-page capture); one extra viewport capture shows the pinned state.
 - Copy for Dead Mall Tycoon comes from its concept doc ("You are not saving the mall. You are managing its death."); DrawEvolve captions condensed from the portfolio's own captions.
+- CoinOp "what makes it different" numerals: 80+, ×4 (fuse up to four), 19, 4 (bosses, per coin-op-iOS README), 78 (Album, from the brief), 1/day. All true of the game.
+- TestFlight button is in the markup with `hidden` and a PLACEHOLDER href; App Store badge slot is a styled "Coming December 16" box with the official-badge markup in a comment.
+- Trailer: `<video>` points at /coinop/trailer.mp4; until it exists the poster (a frame from trailer clip a2) shows with a "Trailer drops soon" note. Autoplays muted only without reduced motion.
+- `.cab` uses `overflow: clip` (not hidden) so the sticky gallery inside it works.
