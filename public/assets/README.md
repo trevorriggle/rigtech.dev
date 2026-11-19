@@ -1,12 +1,16 @@
-# Site-wide assets
-
-Drop these files here with these exact names. Pages pick them up on the next deploy, with no code changes.
-
-| File | Size | Ratio | Used for |
-|---|---|---|---|
-| `og-default.png` | 1200×630 | 1.91:1 | Link-preview image for home, contact, 404 |
-| `clawtastrophe-card.jpg` | 1200×675 | 16:9 | Clawtastrophe card on the home page |
-
-Game-specific images go in `coinop/` and `thoosie/` (see the README in each).
+# Site assets
 
 `site.css`, `site.js` and `contact.js` are the site's code. Don't delete them.
+
+| Folder | What |
+|---|---|
+| `og/` | Link-preview images, 1200×630: `home.png` (home, contact), `coinop.png` (CoinOp pages), `thoosie.png` |
+| `coinop/` | CoinOp art, screenshots, press downloads (see its README) |
+| `thoosie/` | thoosie logo, screenshots, gameplay loop |
+| `drawevolve/` | DrawEvolve logo and screenshots (home page "In the lab") |
+| `deadmall/` | Dead Mall Tycoon pixel tiles and logo (home page "In the lab") |
+| `clawtastrophe/` | **Empty: add `card.jpg`** (see its README) |
+
+Images come from the game repos and trevorriggle.design, resized and converted: AVIF + WebP at two
+widths plus a JPG fallback (`name-<width>.avif|webp|jpg`). To swap an image, replace all three formats
+at the same widths, or edit the `<picture>` in the page.

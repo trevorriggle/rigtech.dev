@@ -1,10 +1,11 @@
 # rigtech.dev overhaul: work queue
 
 ## HANDOFF
-- **Done:** Q1–Q12 (everything built and checked)
-- **Next:** Q13 README + asset READMEs + placeholder summary, Q9 thoosie, Q10 restyles, Q11 meta/OG
+- **Done:** Q1–Q14, all items
+- **Next:** nothing queued. Waiting on the placeholders below., Q9 thoosie, Q10 restyles, Q11 meta/OG
 - **Local preview:** `npx wrangler dev --port 8787`; review screenshots via Playwright (scratch tooling, not committed)
 - **Open decisions:** see the Decisions log at the bottom.
+- **Placeholders for Trevor:** (1) `public/coinop/trailer.mp4`; (2) TestFlight link in coinop.html (remove `hidden`); (3) App Store badge + listing URL after launch; (4) Clawtastrophe card art at `public/assets/clawtastrophe/card.jpg`; (5) thoosie music credit names (thoosie.html); (6) optional: iPhone screenshots to replace the iPad captures.
 
 ## Items
 
@@ -22,8 +23,8 @@
 | Q10 | Restyle /contact, /coinop/support, /privacy, /terms, 404 (policy text unchanged), 2 review rounds | DONE (see git log) |
 | Q11 | OG/Twitter images (home, coinop, thoosie), favicon set, sitemap.xml, robots.txt | DONE (see git log) |
 | Q12 | Local run, phone + desktop check of every page, DO NOT BREAK checklist | DONE (see git log) |
-| Q13 | README + summary of placeholders | TODO |
-| Q14 | Visual-quality brief: review loop per page (phone + desktop, ≥2 revisions), final screens to docs/site-screens/ | ONGOING (per page) |
+| Q13 | README + asset READMEs + placeholder summary | DONE (see git log) |
+| Q14 | Visual-quality brief: review loop per page (phone + desktop, ≥2 revisions), final screens to docs/site-screens/ | DONE (each page commit) |
 
 ## Decisions log
 - Source repos cloned with `--depth 1` into `/tmp/assets` (outside the repo). Nothing from them is committed except optimized images listed in Q3.
