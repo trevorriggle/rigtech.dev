@@ -235,7 +235,7 @@ button.btn { font-family: var(--display); }
 /* ---------- Home: intro ---------- */
 /* One column, one left edge: headline, then the line under it. */
 .intro { padding-block: var(--head-gap) clamp(40px, 6vw, 80px); }
-.intro h1 { max-width: 17ch; }
+.intro h1 { max-width: 24ch; font-size: clamp(2.1rem, 1.3rem + 3.4vw, 4rem); }
 .intro h1 em { font-style: normal; color: var(--orange); }
 .intro-sub { max-width: 52ch; margin: clamp(20px, 2.5vw, 30px) 0 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem); color: var(--ink-2); }
 .intro-sub a { color: var(--ink); }
