@@ -1,8 +1,8 @@
 # rigtech.dev overhaul: work queue
 
 ## HANDOFF
-- **Done:** Q1–Q7 (assets, design system, carousel, home, CoinOp)
-- **Next:** Q8 press, Q9 thoosie, Q10 restyles, Q11 meta/OG
+- **Done:** Q1–Q8 (assets, design system, carousel, home, CoinOp, press kit)
+- **Next:** Q9 thoosie, Q9 thoosie, Q10 restyles, Q11 meta/OG
 - **Local preview:** `npx wrangler dev --port 8787`; review screenshots via Playwright (scratch tooling, not committed)
 - **Open decisions:** see the Decisions log at the bottom.
 
@@ -17,7 +17,7 @@
 | Q5 | Port the portfolio's scroll-sequence carousel (DrawEvolve) as a shared gallery component (`.seq`) | DONE (Q6 commit) |
 | Q6 | Home page (/), 3 review rounds, screens in docs/site-screens | DONE (see git log) |
 | Q7 | CoinOp launch page (/coinop), 3 review rounds | DONE (see git log) |
-| Q8 | CoinOp press kit (/coinop/press) + downloads | TODO |
+| Q8 | CoinOp press kit (/coinop/press) + downloads, 2 review rounds | DONE (see git log) |
 | Q9 | thoosie page (/thoosie) | TODO |
 | Q10 | Restyle /contact, /coinop/support, /privacy, /terms, 404 (policy text unchanged) | TODO |
 | Q11 | OG/Twitter images, favicon set, sitemap.xml, robots.txt | TODO |
@@ -38,3 +38,4 @@
 - TestFlight button is in the markup with `hidden` and a PLACEHOLDER href; App Store badge slot is a styled "Coming December 16" box with the official-badge markup in a comment.
 - Trailer: `<video>` points at /coinop/trailer.mp4; until it exists the poster (a frame from trailer clip a2) shows with a "Trailer drops soon" note. Autoplays muted only without reduced motion.
 - `.cab` uses `overflow: clip` (not hidden) so the sticky gallery inside it works.
+- Press kit long description adapted from coin-op-iOS docs/app-store.md (machines called stages). Screenshot downloads are the full-size iPad captures re-encoded at JPG q86. Trailer download links to /coinop/trailer.mp4 (works once the file is added).

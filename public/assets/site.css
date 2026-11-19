@@ -591,3 +591,17 @@ button.btn { font-family: var(--display); }
 .gallery-band::after { display: none; }
 .on-dark .seq-plate { border-color: var(--cab-line); }
 .sec-head + .diff { border-top: 0; }
+
+/* ---------- Press kit ---------- */
+.press-h { font-size: clamp(2.2rem, 1.6rem + 3vw, 3.6rem); }
+.prose.press { max-width: none; }
+.prose h2.first { margin-top: 0; }
+@media (max-width: 61.99rem) { .prose h2.first { margin-top: 2.4rem; } }
+.press-trailer { display: grid; grid-template-columns: minmax(0, 200px) 1fr; gap: 24px; align-items: center; }
+.press-trailer .trailer { max-width: none; }
+.press-trailer .trailer-note { font-size: 0.95rem; left: 8px; right: 8px; bottom: 8px; padding: 6px; }
+.dl-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 48rem) { .dl-logos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 62rem) { .press .dl { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.prose .dl { padding-left: 0; } .prose .dl li + li { margin-top: 0; }
+.doc-side { padding-top: clamp(32px, 6vw, 64px); }
