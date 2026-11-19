@@ -1,58 +1,69 @@
 # rigtech.dev design direction
 
-## Idea: the arcade after closing time
-RIG Tech is a one-person studio that makes small, odd games. The site should feel like walking into a
-quiet arcade after hours: dark room, warm light off the machines, a few cabinets switched on. CoinOp
-is the cabinet with its marquee lit, because it's next. The studio is the room, not the cabinet:
-the home page is about the studio and its shelf of games, and CoinOp borrows the spotlight.
+## Idea: a printed arcade flyer, with one machine switched on
+RIG Tech is a one-person studio in Columbus, Ohio, making small games about big machines: coin pushers,
+roller coasters, claw machines, a dying mall. The site is the studio's printed sheet: warm paper, black
+ink, the games' own colours used as spot colours, and the art doing the talking. CoinOp is the one
+machine switched on: a dark cabinet panel dropped into the paper page, lit by its own pixel art.
 
-Cues taken from CoinOp (its pixel title, gold coins, the plum-black of its Mint and Album screens),
-kept as accents so thoosie, Clawtastrophe and the lab projects still fit.
+That contrast gives the page varied section shapes (paper, cabinet, paper, a darker lab shelf)
+instead of one block repeated, and keeps the studio separate from its launch.
 
-## Palette
-| Token | Hex | Use |
-|---|---|---|
-| `--ink` | `#120f17` | Page background. Violet-black, not neutral grey. |
-| `--panel` | `#1b1722` | Raised surfaces (cabinets, rows, form fields) |
-| `--line` | `#352e42` | Hairlines and pixel borders |
-| `--paper` | `#f4ecdc` | Body text. Warm cream, never pure white. |
-| `--muted` | `#aaa1b8` | Secondary text (≥ 7:1 on ink) |
-| `--gold` | `#ffc63a` | Coin gold. Primary accent: links, buttons, cursor, focus ring |
-| `--tomato` | `#ff6a4a` | "Launching" status, the one hot accent |
-| `--mint` | `#54e0b2` | "Live" status |
-| `--lilac` | `#b9a4ff` | "In the lab" status |
+## Palette (sampled from the games)
+| Token | Hex | From | Use |
+|---|---|---|---|
+| `--paper` | `#efe7d3` | thoosie's title screen | Page background |
+| `--paper-2` | `#e4d9bf` | — (one step darker) | Bands, the lab shelf, field backgrounds |
+| `--ink` | `#1b1611` | — | Text, rules, button lips |
+| `--ink-2` | `#4d4436` | — | Secondary text (≈ 8:1 on paper) |
+| `--rule` | `#c9bc9b` | — | Hairlines |
+| `--orange` | `#d9560f` | CoinOp's coin rim / thoosie's wordmark | Spot colour: links underline, "now" markers |
+| `--gold` | `#ffc531` | CoinOp coin face | Primary buttons, the cursor, focus ring on dark |
+| `--teal` | `#1e5f5b` | thoosie scaffolding | "Live" status |
+| `--cab` | `#160f1d` | CoinOp's Mint / Album screens | The CoinOp cabinet panel |
+| `--cab-2` | `#251b31` | — | Raised surfaces inside the cabinet |
 
-No gradients as decoration. Flat colour, hard edges, real art doing the colour work.
+No decorative gradients, no glass, no glow. The only texture is a faint CRT scanline on the CoinOp
+cabinet (2px lines at ~5% opacity), because that panel is meant to be a screen.
 
 ## Type
-- **Tomorrow** (600): the wordmark and headings. Squared, slightly technical; it's the studio voice.
-- **Atkinson Hyperlegible** (400/700): body copy. Built for legibility, has character, isn't the usual
-  template sans.
-- **Jersey 10**: CoinOp's own in-game pixel font (OFL, also on Google Fonts). Used only for small
-  arcade "readouts": status tokens, plate numbers, the launch date. Never for paragraphs.
+- **Tomorrow** 600/700: the wordmark and every headline. Set big and tight (display sizes up to ~5.5rem,
+  line-height ~1).
+- **Atkinson Hyperlegible** 400/700: body copy. Designed for legibility, with enough quirk (the
+  slab-ish I, open forms) not to read as the default sans.
+- **Jersey 10**: CoinOp's own in-game pixel font (OFL). Only for short readouts: status tokens, plate
+  numbers, the launch date. Never paragraphs.
 
-## Shape
-- Pixel-stepped corners on cabinets and buttons (a 4px notch drawn with `clip-path`), not rounded cards.
-- Status shown as tokens: a coin-like pill with a pixel font label (LIVE, LAUNCHING 12.16, IN THE LAB).
-- Buttons are arcade buttons: solid gold face with a hard 4px darker "lip" underneath that collapses
-  when pressed.
+Hierarchy comes from size and weight contrast: huge Tomorrow headlines, 18px body, small pixel labels.
+
+## Shape and detail
+- Square corners. Buttons are arcade buttons: flat face, 2px ink border, a hard 4px ink lip that
+  collapses when pressed. No soft shadows.
+- Status tokens in Jersey 10 with a small square "lamp" (LIVE in teal, LAUNCHING in orange, IN THE LAB
+  in ink outline).
+- Images sit in plain 2px ink frames, like prints pinned to a board. CoinOp screenshots inside the
+  cabinet get a stepped pixel corner.
+- CoinOp's spinning coin sprite is the one recurring ornament, used at most once per screen.
 
 ## Layout
-- Mobile-first single column, 16–20px gutters; widens to a 1120px stage on desktop.
-- Home: wordmark → one-line intro → the CoinOp cabinet (big, lit) → the games as a numbered shelf of
-  rows (01, 02, 03…) with alternating art placement, not a card grid → "In the lab" as a smaller,
-  dimmer pair → founder line and footer.
-- Game pages share one structure: head (logo, status, pitch, actions) → gallery → details → links.
-- Galleries use one component everywhere (ported from the trevorriggle.design DrawEvolve sequence):
-  a swipeable scroll-snap strip on phones; on wide screens that support scroll-driven animation, a
-  pinned sequence that steps through the shots as you scroll, with a gold progress bar.
+- Mobile-first single column, 20px gutters; a 12-column grid at ≥ 62rem inside a 1200px stage.
+- Home: header → a big left-aligned statement → full-bleed CoinOp cabinet (asymmetric: copy 5 cols,
+  art 7) → numbered game rows that change shape (a slim CoinOp line, a wide thoosie spread, a
+  mirrored Clawtastrophe row) → "In the lab" on a darker paper band (Dead Mall Tycoon built from its own
+  tiles; DrawEvolve with the scroll sequence) → footer with the founder line.
+- Game pages: hero → trailer/gallery → specifics → small print.
+- Galleries: one component everywhere, ported from the trevorriggle.design DrawEvolve sequence. Phone:
+  a swipeable scroll-snap strip. Desktop with scroll-driven animation support: a pinned sequence that
+  steps through the shots with an orange progress bar. Desktop without support or with reduced
+  motion: a plain grid.
 
 ## Motion
-- The wordmark types itself once per session, then the cursor blinks (existing behaviour, kept).
-- The CoinOp coin spins (sprite sheet, `steps()`), the title logo bobs (its own GIF/WebP loop).
-- Buttons press down 4px. Nothing fades in on scroll.
-- `prefers-reduced-motion: reduce`: no typing, no blinking, coin and logo show a still frame, no
-  smooth scrolling, galleries become a plain swipe strip.
+- The wordmark types once per session; the cursor blinks.
+- CoinOp's coin spins (sprite sheet, `steps()`); its title logo bobs (its own animated loop).
+- Buttons press down; links shift their underline. Nothing fades in on scroll.
+- `prefers-reduced-motion: reduce`: no typing, no blinking, a still coin and logo, no autoplaying
+  video, galleries become a strip/grid.
 
-## Mood words
-Warm, after-hours, hand-made, confident, a little silly. Readable first.
+## Voice
+Short, specific, a little funny. Say what the game is and what's odd about it. No "unleash", no fake
+numbers: every number on the site is true of the game.

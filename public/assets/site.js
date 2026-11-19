@@ -47,3 +47,20 @@
     start();
   }
 })();
+
+/* CoinOp trailer: autoplay (muted) unless the visitor prefers reduced motion;
+   if the file isn't there yet, show the poster with a "coming soon" note. */
+document.addEventListener("DOMContentLoaded", function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  Array.prototype.forEach.call(document.querySelectorAll("video[data-trailer]"), function (v) {
+    var box = v.closest(".trailer");
+    function missing() { if (box) box.classList.add("missing"); v.removeAttribute("controls"); }
+    var src = v.querySelector("source");
+    if (src) src.addEventListener("error", missing);
+    v.addEventListener("error", missing);
+    if (v.networkState === 3) missing(); // NETWORK_NO_SOURCE: failed before we got here
+    if (!reduce) {
+      v.addEventListener("canplay", function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); }, { once: true });
+    }
+  });
+});

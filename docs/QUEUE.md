@@ -1,20 +1,21 @@
 # rigtech.dev overhaul: work queue
 
 ## HANDOFF
-- **Done:** Q1, Q2
-- **Next:** Q3 (assets)
+- **Done:** Q1–Q6 (assets, design system, carousel, home)
+- **Next:** Q7 CoinOp page, then Q8 press, Q9 thoosie, Q10 restyles, Q11 meta/OG
+- **Local preview:** `npx wrangler dev --port 8787`; review screenshots via Playwright (scratch tooling, not committed)
 - **Open decisions:** see the Decisions log at the bottom.
 
 ## Items
 
 | ID | Item | Status |
 |---|---|---|
-| Q1 | Queue file, clone source repos read-only into /tmp/assets | DONE (this commit) |
-| Q2 | docs/DESIGN.md: design direction | DONE |
-| Q3 | Import + optimize assets (CoinOp, thoosie, DrawEvolve, Dead Mall Tycoon) into public/ | TODO |
-| Q4 | New design system: site.css, fonts, header/footer, buttons, favicon | TODO |
-| Q5 | Port the portfolio's scroll-sequence carousel (DrawEvolve) as a shared gallery component | TODO |
-| Q6 | Home page (/) | TODO |
+| Q1 | Queue file, clone source repos read-only into /tmp/assets | DONE 035c1c8 |
+| Q2 | docs/DESIGN.md: design direction (revised for the visual-quality brief: paper + ink, CoinOp cabinet) | DONE 035c1c8, revised in Q6 commit |
+| Q3 | Import + optimize assets (CoinOp, thoosie, DrawEvolve, Dead Mall Tycoon) into public/ | DONE f650dab |
+| Q4 | New design system: site.css, fonts, header/footer, buttons | DONE (Q6 commit) |
+| Q5 | Port the portfolio's scroll-sequence carousel (DrawEvolve) as a shared gallery component (`.seq`) | DONE (Q6 commit) |
+| Q6 | Home page (/), 3 review rounds, screens in docs/site-screens | DONE (see git log) |
 | Q7 | CoinOp launch page (/coinop) | TODO |
 | Q8 | CoinOp press kit (/coinop/press) + downloads | TODO |
 | Q9 | thoosie page (/thoosie) | TODO |
@@ -22,8 +23,14 @@
 | Q11 | OG/Twitter images, favicon set, sitemap.xml, robots.txt | TODO |
 | Q12 | Local run, phone + desktop check of every page, DO NOT BREAK checklist | TODO |
 | Q13 | README + summary of placeholders | TODO |
+| Q14 | Visual-quality brief: review loop per page (phone + desktop, ≥2 revisions), final screens to docs/site-screens/ | ONGOING (per page) |
 
 ## Decisions log
 - Source repos cloned with `--depth 1` into `/tmp/assets` (outside the repo). Nothing from them is committed except optimized images listed in Q3.
 - Clawtastrophe's itch.io page exists at https://pgskizzes.itch.io/clawtastrophe (HTTP 200, same itch account as thoosie). Linked it; the card image stays a placeholder as asked. One-liner taken from its itch.io description.
 - The portfolio "carousel" for DrawEvolve is `components/ui/ScrollSequence` (a CSS scroll-driven pinned sequence, phone = vertical stack). Ported as plain HTML/CSS; on phones it becomes a horizontal swipe strip instead of a stack (better for touch, and what was asked). Under reduced motion it stays the swipe strip.
+- Visual-quality brief (2nd message) changed the palette from dark violet to paper + ink with the games' colours as spot colours; CoinOp is the one dark "cabinet" panel. Avoids the "dark mode with neon" tell.
+- CoinOp screenshots are the 2064x2752 iPad 13" App Store captures (3:4). No iPhone-sized captures exist in the repo; the trailer clips are iPhone-shaped but show only the board. Used iPad shots in the gallery; one frame from trailer clip a2 is the trailer poster. Swap in iPhone shots later if wanted (same filenames in assets/coinop/shots/).
+- Dead Mall Tycoon's in-repo gameplay captures are low-res HUD mockups, so its card is built from its own pixel tiles (storefronts, floor) and logo instead. DrawEvolve included with the ported sequence; it's an app, labelled "Not a game".
+- Review screenshots are taken with reduced motion for full-page captures (the pinned sequence can't render in a full-page capture); one extra viewport capture shows the pinned state.
+- Copy for Dead Mall Tycoon comes from its concept doc ("You are not saving the mall. You are managing its death."); DrawEvolve captions condensed from the portfolio's own captions.
