@@ -35,13 +35,26 @@
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header wrap">
   <a class="wordmark" href="/" aria-label="RIG Tech home"><span class="wm-text" aria-hidden="true">RIG Tech</span><span class="wm-cursor" aria-hidden="true"></span></a>
-  <nav class="site-nav" aria-label="Main"><a href="/#games">Games</a><a href="/coinop">CoinOp</a><a href="/contact" aria-current="page">Contact</a></nav>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/web-design">Web Design</a>
+    <div class="nav-drop">
+      <button class="nav-drop-btn" type="button" aria-expanded="false" aria-controls="nav-games">Games<span class="caret" aria-hidden="true"></span></button>
+      <ul class="nav-menu" id="nav-games">
+        <li><a href="/games">All games</a></li>
+        <li><a href="/coinop">CoinOp</a></li>
+        <li><a href="/thoosie">thoosie</a></li>
+        <li><a href="/clawtastrophe">Clawtastrophe</a></li>
+      </ul>
+    </div>
+    <a href="/apps">Apps</a>
+    <a href="/contact" aria-current="page">Contact</a>
+  </nav>
 </header>
 <main id="main" class="wrap">
 <div class="contact-grid">
 <div class="prose">
   <h1>Say hi.</h1>
-  <p class="lede">Bug in CoinOp, a coaster that broke physics, a press question, or just a nice word. It all lands in the same inbox and a person reads it. Prefer email? <a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a>.</p>
+  <p class="lede">A website project, a bug in CoinOp, a coaster that broke physics, a press question, or just a nice word. It all lands in the same inbox and a person reads it. Prefer email? <a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a>.</p>
 
   <form class="form" id="contact-form" action="/api/contact" method="post" novalidate>
     <div class="field">
@@ -56,6 +69,7 @@
       <label for="cf-subject">Subject</label>
       <select id="cf-subject" name="subject" required>
         <option value="general">General</option>
+        <option value="web">Web design project</option>
         <option value="coinop">CoinOp support</option>
         <option value="thoosie">thoosie</option>
         <option value="business">Business</option>
@@ -109,12 +123,12 @@
   <div class="wrap foot">
     <div>
       <p class="foot-mark">RIG Tech<span>.</span></p>
-      <p class="foot-line">An indie game studio in Columbus, Ohio. Founded by Trevor Riggle; his design work lives at <a href="https://trevorriggle.design">trevorriggle.design</a>.</p>
+      <p class="foot-line">Websites, games and apps from Columbus, Ohio. RIG Tech is Trevor Riggle's studio; his portfolio is at <a href="https://trevorriggle.design">trevorriggle.design</a>.</p>
     </div>
     <div class="foot-cols">
-      <div><h2>Games</h2><ul><li><a href="/coinop">CoinOp</a></li><li><a href="/thoosie">thoosie</a></li><li><a href="https://pgskizzes.itch.io/clawtastrophe">Clawtastrophe</a></li></ul></div>
-      <div><h2>Studio</h2><ul><li><a href="/contact">Contact</a></li><li><a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a></li><li><a href="/coinop/press">Press kit</a></li></ul></div>
-      <div><h2>Elsewhere</h2><ul><li><a href="https://trevorriggle.design">Portfolio</a></li><li><a href="https://pgskizzes.itch.io">itch.io</a></li></ul></div>
+      <div><h2>Studio</h2><ul><li><a href="/web-design">Web design</a></li><li><a href="/apps">Apps</a></li><li><a href="/contact">Contact</a></li><li><a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a></li></ul></div>
+      <div><h2>Games</h2><ul><li><a href="/coinop">CoinOp</a></li><li><a href="/thoosie">thoosie</a></li><li><a href="/clawtastrophe">Clawtastrophe</a></li><li><a href="/coinop/press">CoinOp press kit</a></li></ul></div>
+      <div><h2>Elsewhere</h2><ul><li><a href="https://trevorriggle.design">Portfolio</a></li><li><a href="https://pgskizzes.itch.io">itch.io</a></li><li><a href="https://drawevolve.com">drawevolve.com</a></li></ul></div>
     </div>
   </div>
   <div class="wrap foot-base"><p>&copy; 2026 RIG Tech LLC</p><p>Columbus, Ohio</p></div>

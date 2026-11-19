@@ -26,6 +26,17 @@
 | Q13 | README + asset READMEs + placeholder summary | DONE (see git log) |
 | Q14 | Visual-quality brief: review loop per page (phone + desktop, ≥2 revisions), final screens to docs/site-screens/ | DONE (each page commit) |
 
+## Round 2 (2026-11-19): nav, new pages, spacing fixes
+- New nav: Web Design · Games (dropdown) · Apps · Contact. New pages /web-design, /games, /apps, /drawevolve, /clawtastrophe.
+- Home intro rewritten and made one column; "small games about big machines" retired (copy, meta, OG image).
+- Dead Mall Tycoon removed (scrapped). Its art is deleted; restore from git (f650dab) if it comes back.
+- DrawEvolve moved off the home page to /drawevolve. Pinned carousels now sit in a shorter, centred stage and hold on the last shot before letting go.
+- /web-design uses the American Scientific before/after sequence and copy from trevorriggle.design (condensed).
+- CoinOp: iPad screenshots replaced with six iPhone captures; "what makes it different" rebuilt as a 3-column grid (fixes the broken 4→1 numeral); App Store "coming" box removed; iPhone and iPad everywhere except the legal text.
+- Press kit rebuilt as one row per section (label left, content right).
+- Contact form: new "Web design project" subject (contact.html + src/contact.js).
+- docs/site-screens/ predates this round and is out of date.
+
 ## Decisions log
 - Source repos cloned with `--depth 1` into `/tmp/assets` (outside the repo). Nothing from them is committed except optimized images listed in Q3.
 - Clawtastrophe's itch.io page exists at https://pgskizzes.itch.io/clawtastrophe (HTTP 200, same itch account as thoosie). Linked it; the card image stays a placeholder as asked. One-liner taken from its itch.io description.

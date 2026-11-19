@@ -1,8 +1,8 @@
 # rigtech.dev design direction
 
 ## Idea: a printed arcade flyer, with one machine switched on
-RIG Tech is a one-person studio in Columbus, Ohio, making small games about big machines: coin pushers,
-roller coasters, claw machines, a dying mall. The site is the studio's printed sheet: warm paper, black
+RIG Tech is Trevor Riggle's studio in Columbus, Ohio: websites for businesses, plus games (a coin pusher,
+a roller coaster, a claw machine) and apps of its own. The site is the studio's printed sheet: warm paper, black
 ink, the games' own colours used as spot colours, and the art doing the talking. CoinOp is the one
 machine switched on: a dark cabinet panel dropped into the paper page, lit by its own pixel art.
 
@@ -47,10 +47,11 @@ Hierarchy comes from size and weight contrast: huge Tomorrow headlines, 18px bod
 
 ## Layout
 - Mobile-first single column, 20px gutters; a 12-column grid at ≥ 62rem inside a 1200px stage.
-- Home: header → a big left-aligned statement → full-bleed CoinOp cabinet (asymmetric: copy 5 cols,
-  art 7) → numbered game rows that change shape (a slim CoinOp line, a wide thoosie spread, a
-  mirrored Clawtastrophe row) → "In the lab" on a darker paper band (Dead Mall Tycoon built from its own
-  tiles; DrawEvolve with the scroll sequence) → footer with the founder line.
+- Nav: Web Design · Games (dropdown) · Apps · Contact. On phones the nav takes its own row under the wordmark.
+- Home: header → a one-column statement (headline, then one line, same left edge) → full-bleed CoinOp
+  cabinet → Web design (one row) → Games (three cards) → Apps (one row) → footer.
+- Rows are always art left, copy right (never mirrored). Section heads put any note *under* the heading,
+  never pushed to the far side.
 - Game pages: hero → trailer/gallery → specifics → small print.
 - Galleries: one component everywhere, ported from the trevorriggle.design DrawEvolve sequence. Phone:
   a swipeable scroll-snap strip. Desktop with scroll-driven animation support: a pinned sequence that
@@ -58,12 +59,12 @@ Hierarchy comes from size and weight contrast: huge Tomorrow headlines, 18px bod
   motion: a plain grid.
 
 ## Motion
-- The wordmark types once per session; the cursor blinks.
+- The wordmark types once per session; the cursor blinks. Every ~14 s it backspaces and quickly retypes.
 - CoinOp's coin spins (sprite sheet, `steps()`); its title logo bobs (its own animated loop).
 - Buttons press down; links shift their underline. Nothing fades in on scroll.
-- `prefers-reduced-motion: reduce`: no typing, no blinking, a still coin and logo, no autoplaying
+- `prefers-reduced-motion: reduce`: no typing or retyping, no blinking, a still coin and logo, no autoplaying
   video, galleries become a strip/grid.
 
 ## Voice
-Short, specific, a little funny. Say what the game is and what's odd about it. No "unleash", no fake
+Short, specific, a little funny. Say what the thing is and what's odd about it. No "unleash", no fake
 numbers: every number on the site is true of the game.

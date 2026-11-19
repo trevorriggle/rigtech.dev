@@ -6,6 +6,11 @@ The only server code is `src/worker.js`, which handles `POST /api/contact`; ever
 ```
 public/                 ← deployed (assets.directory in wrangler.jsonc)
   index.html            /                 studio home
+  web-design.html       /web-design       web design + American Scientific case study
+  games.html            /games            all games (also the Games dropdown in the nav)
+  apps.html             /apps             apps (DrawEvolve)
+  drawevolve.html       /drawevolve       DrawEvolve
+  clawtastrophe.html    /clawtastrophe    Clawtastrophe
   coinop.html           /coinop           CoinOp launch page
   coinop/press.html     /coinop/press     press kit
   coinop/privacy.html   /coinop/privacy   (linked from the App Store listing and the app)
@@ -47,10 +52,12 @@ Search the code for `PLACEHOLDER` and `SLOT` to find what's left to fill in.
 ## Design
 Read `docs/DESIGN.md` before changing the look. Every page shares the header, footer and `site.css`;
 there's no build step, so a header/footer change has to be made in each HTML file.
+The main nav is Web Design · Games (dropdown: All games, CoinOp, thoosie, Clawtastrophe) · Apps · Contact;
+the dropdown opens on hover and on click/tap (`site.js`).
 
 Galleries (`.seq` in site.css) are a port of the trevorriggle.design DrawEvolve scroll sequence: a swipe
 strip on phones, a pinned scroll sequence on wide screens with scroll-driven animation, a grid otherwise.
 Each shot needs `--i`, `--start` and `--end` (its slice of the run, in %) and the section needs `--n`.
+Add `landscape` for wide shots and `phone` for iPhone-shaped shots (no empty panel around the shot).
 
-Images are pre-optimized (AVIF + WebP + a JPG fallback, in `<picture>`). Pixel art (CoinOp logo, coin,
-Dead Mall Tycoon tiles) is stored at 1x and scaled up with `image-rendering: pixelated`.
+Images are pre-optimized (AVIF + WebP + a JPG fallback, in `<picture>`). Pixel art (CoinOp logo, coin) is stored at 1x and scaled up with `image-rendering: pixelated`.

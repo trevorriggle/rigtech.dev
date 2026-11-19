@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CoinOp: a roguelite coin pusher for iPhone | RIG Tech</title>
-<meta name="description" content="CoinOp is a roguelite coin pusher where real coins have powers. 80+ coins, 19 stages, bosses and Daily Machines. Launching December 16 on iPhone.">
+<title>CoinOp: a roguelite coin pusher for iPhone and iPad | RIG Tech</title>
+<meta name="description" content="CoinOp is a roguelite coin pusher where real coins have powers. 80+ coins, 19 stages, bosses and Daily Machines. Launching December 16 on iPhone and iPad.">
 <link rel="canonical" href="https://rigtech.dev/coinop">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RIG Tech">
 <meta property="og:title" content="CoinOp: a roguelite coin pusher where real coins have powers">
-<meta property="og:description" content="Launching December 16 on iPhone. Free.">
+<meta property="og:description" content="Launching December 16 on iPhone and iPad. Free.">
 <meta property="og:url" content="https://rigtech.dev/coinop">
 <meta property="og:image" content="https://rigtech.dev/assets/og/coinop.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The CoinOp logo over a pile of gold coins. Launching December 16 on iPhone.">
+<meta property="og:image:alt" content="The CoinOp logo over a pile of gold coins. Launching December 16 on iPhone and iPad.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CoinOp: a roguelite coin pusher where real coins have powers">
-<meta name="twitter:description" content="Launching December 16 on iPhone. Free.">
+<meta name="twitter:description" content="Launching December 16 on iPhone and iPad. Free.">
 <meta name="twitter:image" content="https://rigtech.dev/assets/og/coinop.png">
 <meta name="theme-color" content="#efe7d3">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -33,12 +33,25 @@
 <a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header wrap">
   <a class="wordmark" href="/" aria-label="RIG Tech home"><span class="wm-text" aria-hidden="true">RIG Tech</span><span class="wm-cursor" aria-hidden="true"></span></a>
-  <nav class="site-nav" aria-label="Main"><a href="/#games">Games</a><a href="/coinop" aria-current="page">CoinOp</a><a href="/contact">Contact</a></nav>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/web-design">Web Design</a>
+    <div class="nav-drop">
+      <button class="nav-drop-btn is-current" type="button" aria-expanded="false" aria-controls="nav-games">Games<span class="caret" aria-hidden="true"></span></button>
+      <ul class="nav-menu" id="nav-games">
+        <li><a href="/games">All games</a></li>
+        <li><a href="/coinop" aria-current="page">CoinOp</a></li>
+        <li><a href="/thoosie">thoosie</a></li>
+        <li><a href="/clawtastrophe">Clawtastrophe</a></li>
+      </ul>
+    </div>
+    <a href="/apps">Apps</a>
+    <a href="/contact">Contact</a>
+  </nav>
 </header>
 <main id="main">
   <section class="cab on-dark" aria-labelledby="co-h">
     <div class="marquee" aria-hidden="true">
-      <div class="wrap" style="display:flex;justify-content:space-between;gap:16px"><span>Launching 12.16.2026</span><span>iPhone</span><span>Free to play</span></div>
+      <div class="wrap" style="display:flex;justify-content:space-between;gap:16px"><span>Launching 12.16.2026</span><span>iPhone + iPad</span><span>Free to play</span></div>
     </div>
     <div class="wrap g-hero">
       <div class="g-hero-grid">
@@ -53,13 +66,12 @@
           <p class="g-lede">Push the rare bank note into the tray before your pouch runs out. Win the stage, spend your winnings, and take on a stranger machine. Lose the run and the note stays on the shelf, smug.</p>
           <div class="launch">
             <span class="coin x2" aria-hidden="true"></span>
-            <p class="launch-text" style="margin:0"><span class="launch-date">Dec 16</span><br>Launching December 16 on iPhone<small>Free, with optional ads and a one-time Remove Ads purchase</small></p>
+            <p class="launch-text" style="margin:0"><span class="launch-date">Dec 16</span><br>Launching December 16 on iPhone and iPad<small>Free, with optional ads and a one-time Remove Ads purchase</small></p>
           </div>
           <div class="actions">
             <!-- APP STORE BADGE SLOT: when the listing is live, replace this span with Apple's official badge:
                  <a href="https://apps.apple.com/app/idYOUR_APP_ID"><img src="/assets/coinop/app-store-badge.svg" alt="Download on the App Store" width="160" height="53"></a>
                  (download the black SVG badge from developer.apple.com/app-store/marketing/guidelines/; don't redraw it) -->
-            <span class="badge-soon" role="img" aria-label="Coming December 16 to the App Store"><small>Coming December 16 to the</small><strong>App Store</strong></span>
             <!-- TESTFLIGHT SLOT: paste the public TestFlight link into href and delete the `hidden` attribute. -->
             <a class="btn" href="https://testflight.apple.com/join/PLACEHOLDER" hidden>Join the TestFlight beta</a>
           </div>
@@ -79,10 +91,10 @@
   </section>
 
   <section class="sec wrap" aria-labelledby="diff-h">
-    <div class="sec-head"><h2 id="diff-h">What makes it different</h2><p>Every number here is in the game.</p></div>
+    <div class="sec-head"><h2 id="diff-h">What makes it different</h2></div>
     <ol class="diff">
       <li><span class="diff-n">80+</span><h3>Special coins, based on real ones</h3><p>A Buffalo nickel charges straight down its lane. A Standing Liberty quarter walls off the nearest gap. A Bully shoves six coins far too hard. Every coin does something.</p></li>
-      <li><span class="diff-n"><span class="diff-n">4&rarr;1</span>times;4</span><h3>Fuse them in the Mint</h3><p>Roll a Mule Die and fuse up to four coins into one Mule that does all of their jobs in a single drop. Thousands of combinations; some of them are a terrible idea.</p></li>
+      <li><span class="diff-n">4&rarr;1</span><h3>Fuse them in the Mint</h3><p>Roll a Mule Die and fuse up to four coins into one Mule that does all of their jobs in a single drop. Thousands of combinations; some of them are a terrible idea.</p></li>
       <li><span class="diff-n">19</span><h3>Stages, each with its own twist</h3><p>A laundromat, a sand trap, pop bumpers, a river, a paperclipped note, and a vault where the note is torn in half.</p></li>
       <li><span class="diff-n">4</span><h3>Bosses, and then the machine</h3><p>Four boss stages bend the rules of the board. The final boss isn't on the machine. It is the machine.</p></li>
       <li><span class="diff-n">78</span><h3>A collector's Album</h3><p>Every coin, Mule and prize you find gets a slot. 78 pieces. You'll know which one you're missing.</p></li>
@@ -92,75 +104,75 @@
 
   <section class="sec cab on-dark gallery-band" aria-labelledby="shots-h">
     <div class="wrap">
-      <div class="sec-head"><h2 id="shots-h">Screenshots</h2><p>From the real game, on iPad.</p></div>
-      <section class="seq on-dark" style="--n:6" aria-label="CoinOp screenshots">
+      <div class="sec-head"><h2 id="shots-h">Screenshots</h2></div>
+      <section class="seq on-dark phone" style="--n:6" aria-label="CoinOp screenshots">
             <div class="seq-stage">
               <ol class="seq-shots">
                 <li class="seq-shot" style="--i:0;--start:0.00%;--end:16.67%">
-                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.75">
+                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.46">
                     <picture>
-                      <source type="image/avif" srcset="/assets/coinop/shots/1-board-480.avif 480w, /assets/coinop/shots/1-board-960.avif 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <source type="image/webp" srcset="/assets/coinop/shots/1-board-480.webp 480w, /assets/coinop/shots/1-board-960.webp 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <img src="/assets/coinop/shots/1-board-960.jpg" alt="CoinOp's Sand Trap stage: gold coins heaped under a US Supply Depot sign, a PERFECT! callout over the drop, and the pouch of special coins down the left" width="960" height="1280" loading="lazy" decoding="async">
+                      <source type="image/avif" srcset="/assets/coinop/shots/01-480.avif 480w, /assets/coinop/shots/01-960.avif 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <source type="image/webp" srcset="/assets/coinop/shots/01-480.webp 480w, /assets/coinop/shots/01-960.webp 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <img src="/assets/coinop/shots/01-960.jpg" alt="The Laundromat, stage 1 of 19: a teal coin pusher heaped with gold coins, the bank note sitting at the front edge, the pouch and combo counters at the bottom right" width="960" height="2087" loading="lazy" decoding="async">
                     </picture>
                     <span class="seq-bar" aria-hidden="true"><span></span></span>
                   </div></figure>
-                  <div class="seq-side"><span class="seq-index" aria-hidden="true">01/06</span><p class="seq-cap">Stage one of nineteen. Line up the drop, hold to charge, release on the green.</p></div>
+                  <div class="seq-side"><span class="seq-index" aria-hidden="true">01/06</span><p class="seq-cap">Stage one of nineteen. Push the bank note into the tray before your pouch runs out.</p></div>
                 </li>
                 <li class="seq-shot" style="--i:1;--start:16.67%;--end:33.33%">
-                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.75">
+                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.46">
                     <picture>
-                      <source type="image/avif" srcset="/assets/coinop/shots/2-jackpot-480.avif 480w, /assets/coinop/shots/2-jackpot-960.avif 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <source type="image/webp" srcset="/assets/coinop/shots/2-jackpot-480.webp 480w, /assets/coinop/shots/2-jackpot-960.webp 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <img src="/assets/coinop/shots/2-jackpot-960.jpg" alt="The Laundromat stage: the bank note tipping off the front of a teal coin pusher heaped with gold coins" width="960" height="1280" loading="lazy" decoding="async">
+                      <source type="image/avif" srcset="/assets/coinop/shots/02-480.avif 480w, /assets/coinop/shots/02-960.avif 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <source type="image/webp" srcset="/assets/coinop/shots/02-480.webp 480w, /assets/coinop/shots/02-960.webp 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <img src="/assets/coinop/shots/02-960.jpg" alt="A COLLECTED! banner over the Laundromat as a wave of coins goes over the edge, with a x2 multiplier at the top left" width="960" height="2087" loading="lazy" decoding="async">
                     </picture>
                     <span class="seq-bar" aria-hidden="true"><span></span></span>
                   </div></figure>
-                  <div class="seq-side"><span class="seq-index" aria-hidden="true">02/06</span><p class="seq-cap">The whole goal: get the note into the tray before your pouch runs out.</p></div>
+                  <div class="seq-side"><span class="seq-index" aria-hidden="true">02/06</span><p class="seq-cap">When the pile finally goes, it all goes at once.</p></div>
                 </li>
                 <li class="seq-shot" style="--i:2;--start:33.33%;--end:50.00%">
-                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.75">
+                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.46">
                     <picture>
-                      <source type="image/avif" srcset="/assets/coinop/shots/4-mint-480.avif 480w, /assets/coinop/shots/4-mint-960.avif 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <source type="image/webp" srcset="/assets/coinop/shots/4-mint-480.webp 480w, /assets/coinop/shots/4-mint-960.webp 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <img src="/assets/coinop/shots/4-mint-960.jpg" alt="The Mint: a Buffalo nickel and a Standing Liberty quarter fused into one Mule called Bufferty, which charges straight ahead and walls off a side gap" width="960" height="1280" loading="lazy" decoding="async">
+                      <source type="image/avif" srcset="/assets/coinop/shots/03-480.avif 480w, /assets/coinop/shots/03-960.avif 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <source type="image/webp" srcset="/assets/coinop/shots/03-480.webp 480w, /assets/coinop/shots/03-960.webp 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <img src="/assets/coinop/shots/03-960.jpg" alt="The Mint: a Buffalo nickel and a Standing Liberty quarter fused into one Mule called Bufferty, which charges straight ahead and walls off the nearest side gap" width="960" height="2087" loading="lazy" decoding="async">
                     </picture>
                     <span class="seq-bar" aria-hidden="true"><span></span></span>
                   </div></figure>
                   <div class="seq-side"><span class="seq-index" aria-hidden="true">03/06</span><p class="seq-cap">The Mint. A Buffalo and a Standing Liberty walk in; Bufferty walks out.</p></div>
                 </li>
                 <li class="seq-shot" style="--i:3;--start:50.00%;--end:66.67%">
-                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.75">
+                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.46">
                     <picture>
-                      <source type="image/avif" srcset="/assets/coinop/shots/5-wacky-480.avif 480w, /assets/coinop/shots/5-wacky-960.avif 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <source type="image/webp" srcset="/assets/coinop/shots/5-wacky-480.webp 480w, /assets/coinop/shots/5-wacky-960.webp 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <img src="/assets/coinop/shots/5-wacky-960.jpg" alt="The Pop Bumpers stage: a pinball-style machine with bumpers in the coin pile and a Perfect Drop banner" width="960" height="1280" loading="lazy" decoding="async">
+                      <source type="image/avif" srcset="/assets/coinop/shots/04-480.avif 480w, /assets/coinop/shots/04-960.avif 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <source type="image/webp" srcset="/assets/coinop/shots/04-480.webp 480w, /assets/coinop/shots/04-960.webp 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <img src="/assets/coinop/shots/04-960.jpg" alt="The River, stage 6 of 19: the Ohio River runs across the board, with the bank note floating among the coins" width="960" height="2087" loading="lazy" decoding="async">
                     </picture>
                     <span class="seq-bar" aria-hidden="true"><span></span></span>
                   </div></figure>
-                  <div class="seq-side"><span class="seq-index" aria-hidden="true">04/06</span><p class="seq-cap">Every stage has a twist. This one has pop bumpers. Others have a river, sand, and a note torn in half.</p></div>
+                  <div class="seq-side"><span class="seq-index" aria-hidden="true">04/06</span><p class="seq-cap">Every stage has a twist. Stage six has a river running through the board.</p></div>
                 </li>
                 <li class="seq-shot" style="--i:4;--start:66.67%;--end:83.33%">
-                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.75">
+                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.46">
                     <picture>
-                      <source type="image/avif" srcset="/assets/coinop/shots/6-boss-480.avif 480w, /assets/coinop/shots/6-boss-960.avif 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <source type="image/webp" srcset="/assets/coinop/shots/6-boss-480.webp 480w, /assets/coinop/shots/6-boss-960.webp 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <img src="/assets/coinop/shots/6-boss-960.jpg" alt="A boss fight against the Piggy Bank, a tilted machine with a pig target and a health bar across the top" width="960" height="1280" loading="lazy" decoding="async">
+                      <source type="image/avif" srcset="/assets/coinop/shots/05-480.avif 480w, /assets/coinop/shots/05-960.avif 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <source type="image/webp" srcset="/assets/coinop/shots/05-480.webp 480w, /assets/coinop/shots/05-960.webp 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <img src="/assets/coinop/shots/05-960.jpg" alt="A boss stage against the Piggy Bank: a pink pig target behind a wall of coins, with its health bar across the top" width="960" height="2087" loading="lazy" decoding="async">
                     </picture>
                     <span class="seq-bar" aria-hidden="true"><span></span></span>
                   </div></figure>
-                  <div class="seq-side"><span class="seq-index" aria-hidden="true">05/06</span><p class="seq-cap">Boss stages bend the rules of the board. The last boss is the machine itself.</p></div>
+                  <div class="seq-side"><span class="seq-index" aria-hidden="true">05/06</span><p class="seq-cap">Boss stages bend the rules. The last boss is the machine itself.</p></div>
                 </li>
                 <li class="seq-shot" style="--i:5;--start:83.33%;--end:100.00%">
-                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.75">
+                  <figure class="seq-fig"><div class="seq-plate" style="--ar:0.46">
                     <picture>
-                      <source type="image/avif" srcset="/assets/coinop/shots/8-album-480.avif 480w, /assets/coinop/shots/8-album-960.avif 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <source type="image/webp" srcset="/assets/coinop/shots/8-album-480.webp 480w, /assets/coinop/shots/8-album-960.webp 960w" sizes="(min-width: 62rem) 560px, (min-width: 40rem) 46vw, 78vw">
-                      <img src="/assets/coinop/shots/8-album-960.jpg" alt="The Album: a grid of collected coins including Gold Coin, Goblin Coin, Bully Coin, Tilt Coin and Buffalo Nickel" width="960" height="1280" loading="lazy" decoding="async">
+                      <source type="image/avif" srcset="/assets/coinop/shots/06-480.avif 480w, /assets/coinop/shots/06-960.avif 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <source type="image/webp" srcset="/assets/coinop/shots/06-480.webp 480w, /assets/coinop/shots/06-960.webp 960w" sizes="(min-width: 62rem) 400px, (min-width: 40rem) 34vw, 62vw">
+                      <img src="/assets/coinop/shots/06-960.jpg" alt="The Album: a grid of collected coins including Gold Coin, Goblin Coin, Bully Coin, Tilt Coin, Penny Roll and Buffalo Nickel, with tabs for coins, notes, Mules and prizes" width="960" height="2087" loading="lazy" decoding="async">
                     </picture>
                     <span class="seq-bar" aria-hidden="true"><span></span></span>
                   </div></figure>
-                  <div class="seq-side"><span class="seq-index" aria-hidden="true">06/06</span><p class="seq-cap">The Album keeps every coin and Mule you've found. Collectors, there are 78.</p></div>
+                  <div class="seq-side"><span class="seq-index" aria-hidden="true">06/06</span><p class="seq-cap">The Album keeps every coin, note, Mule and prize you've found. You'll know which one you're missing.</p></div>
                 </li>
               </ol>
               <p class="seq-hint" aria-hidden="true"><span>Swipe</span><span>6 shots &rarr;</span></p>
@@ -179,7 +191,7 @@
       <div>
         <dl class="facts">
           <dt>Release</dt><dd>December 16, 2026</dd>
-          <dt>Platform</dt><dd>iPhone</dd>
+          <dt>Platform</dt><dd>iPhone and iPad</dd>
           <dt>Price</dt><dd>Free, with optional ads. Remove Ads is a one-time purchase.</dd>
           <dt>Saves</dt><dd>On your device, plus iCloud if you turn it on</dd>
           <dt>Developer</dt><dd>RIG Tech, Columbus, Ohio</dd>
@@ -197,12 +209,12 @@
   <div class="wrap foot">
     <div>
       <p class="foot-mark">RIG Tech<span>.</span></p>
-      <p class="foot-line">An indie game studio in Columbus, Ohio. Founded by Trevor Riggle; his design work lives at <a href="https://trevorriggle.design">trevorriggle.design</a>.</p>
+      <p class="foot-line">Websites, games and apps from Columbus, Ohio. RIG Tech is Trevor Riggle's studio; his portfolio is at <a href="https://trevorriggle.design">trevorriggle.design</a>.</p>
     </div>
     <div class="foot-cols">
-      <div><h2>Games</h2><ul><li><a href="/coinop">CoinOp</a></li><li><a href="/thoosie">thoosie</a></li><li><a href="https://pgskizzes.itch.io/clawtastrophe">Clawtastrophe</a></li></ul></div>
-      <div><h2>Studio</h2><ul><li><a href="/contact">Contact</a></li><li><a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a></li><li><a href="/coinop/press">Press kit</a></li></ul></div>
-      <div><h2>Elsewhere</h2><ul><li><a href="https://trevorriggle.design">Portfolio</a></li><li><a href="https://pgskizzes.itch.io">itch.io</a></li></ul></div>
+      <div><h2>Studio</h2><ul><li><a href="/web-design">Web design</a></li><li><a href="/apps">Apps</a></li><li><a href="/contact">Contact</a></li><li><a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a></li></ul></div>
+      <div><h2>Games</h2><ul><li><a href="/coinop">CoinOp</a></li><li><a href="/thoosie">thoosie</a></li><li><a href="/clawtastrophe">Clawtastrophe</a></li><li><a href="/coinop/press">CoinOp press kit</a></li></ul></div>
+      <div><h2>Elsewhere</h2><ul><li><a href="https://trevorriggle.design">Portfolio</a></li><li><a href="https://pgskizzes.itch.io">itch.io</a></li><li><a href="https://drawevolve.com">drawevolve.com</a></li></ul></div>
     </div>
   </div>
   <div class="wrap foot-base"><p>&copy; 2026 RIG Tech LLC</p><p>Columbus, Ohio</p></div>
