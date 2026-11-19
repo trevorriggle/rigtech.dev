@@ -605,3 +605,16 @@ button.btn { font-family: var(--display); }
 @media (min-width: 62rem) { .press .dl { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .prose .dl { padding-left: 0; } .prose .dl li + li { margin-top: 0; }
 .doc-side { padding-top: clamp(32px, 6vw, 64px); }
+
+/* ---------- thoosie page ---------- */
+.th-head { display: grid; gap: 20px; }
+.th-logo { width: min(100%, 520px); height: auto; margin-top: 18px; }
+.th-copy .g-pitch { margin-top: 0; }
+.th-video { margin: 36px 0 0; }
+.th-video video { width: 100%; height: auto; aspect-ratio: 960 / 492; background: var(--paper-2); }
+@media (min-width: 62rem) {
+  .th-head { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: end; }
+  .th-head > :first-child { grid-column: 1 / span 6; }
+  .th-copy { grid-column: 8 / span 5; }
+  .th-video { margin-top: 56px; margin-inline: calc(var(--gutter) * -1); }
+}
