@@ -11,25 +11,32 @@
 <meta property="og:title" content="CoinOp Support">
 <meta property="og:description" content="Help with No Ads purchases, saved progress, and getting in touch.">
 <meta property="og:url" content="https://rigtech.dev/coinop/support">
-<meta property="og:image" content="https://rigtech.dev/assets/coinop/og.png">
+<meta property="og:image" content="https://rigtech.dev/assets/og/coinop.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The CoinOp logo over a pile of gold coins.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0d0e11">
+<meta name="twitter:title" content="CoinOp Support">
+<meta name="twitter:description" content="Help with No Ads purchases, saved progress, and getting in touch.">
+<meta name="twitter:image" content="https://rigtech.dev/assets/og/coinop.png">
+<meta name="theme-color" content="#efe7d3">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Jersey+10&family=Tomorrow:wght@500;600;700&display=swap">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/site.js"></script>
 </head>
 <body>
+<a class="sr-only" href="#main">Skip to content</a>
 <header class="site-header wrap">
   <a class="wordmark" href="/" aria-label="RIG Tech home"><span class="wm-text" aria-hidden="true">RIG Tech</span><span class="wm-cursor" aria-hidden="true"></span></a>
-  <nav class="site-nav" aria-label="Main"><a href="/#games">Games</a><a href="/contact">Contact</a></nav>
+  <nav class="site-nav" aria-label="Main"><a href="/#games">Games</a><a href="/coinop" aria-current="page">CoinOp</a><a href="/contact">Contact</a></nav>
 </header>
-
-<main class="wrap">
+<main id="main" class="wrap">
+<div class="doc doc-legal">
 <article class="prose">
   <p class="crumbs"><a href="/coinop">CoinOp</a> / Support</p>
   <h1>CoinOp Support</h1>
@@ -62,11 +69,34 @@
     <li><a href="/coinop/terms">Terms of Service</a></li>
   </ul>
 </article>
+  <aside class="doc-side" aria-label="CoinOp pages">
+    <div class="sticky side-card">
+      <picture><source type="image/webp" srcset="/assets/coinop/icon-160.webp 1x, /assets/coinop/icon-320.webp 2x"><img src="/assets/coinop/icon-320.png" alt="" width="64" height="64"></picture>
+      <p class="side-title">CoinOp</p>
+      <ul class="side-links">
+        <li><a href="/coinop">About the game</a></li>
+        <li><a href="/coinop/support" aria-current="page">Support</a></li>
+        <li><a href="/coinop/privacy">Privacy Policy</a></li>
+        <li><a href="/coinop/terms">Terms of Service</a></li>
+      </ul>
+      <p class="meta">Questions? <a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a></p>
+    </div>
+  </aside>
+</div>
 </main>
-
-<footer class="site-footer wrap" id="contact">
-  <p>&copy; 2026 RIG Tech LLC</p>
-  <p><a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a></p>
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div>
+      <p class="foot-mark">RIG Tech<span>.</span></p>
+      <p class="foot-line">An indie game studio in Columbus, Ohio. Founded by Trevor Riggle; his design work lives at <a href="https://trevorriggle.design">trevorriggle.design</a>.</p>
+    </div>
+    <div class="foot-cols">
+      <div><h2>Games</h2><ul><li><a href="/coinop">CoinOp</a></li><li><a href="/thoosie">thoosie</a></li><li><a href="https://pgskizzes.itch.io/clawtastrophe">Clawtastrophe</a></li></ul></div>
+      <div><h2>Studio</h2><ul><li><a href="/contact">Contact</a></li><li><a href="mailto:hello@rigtech.dev">hello@rigtech.dev</a></li><li><a href="/coinop/press">Press kit</a></li></ul></div>
+      <div><h2>Elsewhere</h2><ul><li><a href="https://trevorriggle.design">Portfolio</a></li><li><a href="https://pgskizzes.itch.io">itch.io</a></li></ul></div>
+    </div>
+  </div>
+  <div class="wrap foot-base"><p>&copy; 2026 RIG Tech LLC</p><p>Columbus, Ohio</p></div>
 </footer>
 </body>
 </html>

@@ -1,8 +1,8 @@
 # rigtech.dev overhaul: work queue
 
 ## HANDOFF
-- **Done:** Q1–Q9 (assets, design system, carousel, home, CoinOp, press kit, thoosie)
-- **Next:** Q10 restyle contact/support/privacy/terms/404, Q9 thoosie, Q10 restyles, Q11 meta/OG
+- **Done:** Q1–Q10 (assets, design system, carousel, home, CoinOp, press kit, thoosie, restyles)
+- **Next:** Q11 OG images, favicon set, sitemap, robots, Q9 thoosie, Q10 restyles, Q11 meta/OG
 - **Local preview:** `npx wrangler dev --port 8787`; review screenshots via Playwright (scratch tooling, not committed)
 - **Open decisions:** see the Decisions log at the bottom.
 
@@ -19,7 +19,7 @@
 | Q7 | CoinOp launch page (/coinop), 3 review rounds | DONE (see git log) |
 | Q8 | CoinOp press kit (/coinop/press) + downloads, 2 review rounds | DONE (see git log) |
 | Q9 | thoosie page (/thoosie), 2 review rounds | DONE (see git log) |
-| Q10 | Restyle /contact, /coinop/support, /privacy, /terms, 404 (policy text unchanged) | TODO |
+| Q10 | Restyle /contact, /coinop/support, /privacy, /terms, 404 (policy text unchanged), 2 review rounds | DONE (see git log) |
 | Q11 | OG/Twitter images, favicon set, sitemap.xml, robots.txt | TODO |
 | Q12 | Local run, phone + desktop check of every page, DO NOT BREAK checklist | TODO |
 | Q13 | README + summary of placeholders | TODO |
@@ -40,3 +40,4 @@
 - `.cab` uses `overflow: clip` (not hidden) so the sticky gallery inside it works.
 - Press kit long description adapted from coin-op-iOS docs/app-store.md (machines called stages). Screenshot downloads are the full-size iPad captures re-encoded at JPG q86. Trailer download links to /coinop/trailer.mp4 (works once the file is added).
 - thoosie: 10 s gameplay loop (658 KB, no audio) cut from the portfolio's thoosiecoaster.mp4 and letterbox-cropped; stills from the same video. Dropped the iMac mockup photo from the gallery (it read as marketing, and its ratio didn't match). Music credits keep the existing PLACEHOLDER names.
+- Legal/support pages: the `<article>` block of each is byte-identical to before (checked with cmp); only head, header, footer and a side card were changed. Contact form markup is identical except Turnstile `data-theme` dark → light to match the paper page.

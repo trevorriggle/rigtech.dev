@@ -618,3 +618,21 @@ button.btn { font-family: var(--display); }
   .th-copy { grid-column: 8 / span 5; }
   .th-video { margin-top: 56px; margin-inline: calc(var(--gutter) * -1); }
 }
+
+/* ---------- Legal / support pages ---------- */
+.side-card { border: 2px solid var(--ink); background: #fbf6ea; padding: 20px; box-shadow: 4px 4px 0 var(--ink); }
+.side-card img { width: 64px; height: 64px; border: 2px solid var(--ink); }
+.side-title { font: 700 1.5rem/1 var(--display); margin: 14px 0 12px; }
+.side-links { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 2px; font-family: var(--display); font-weight: 600; }
+.side-links a { text-decoration-color: transparent; }
+.side-links a:hover { text-decoration-color: var(--orange); }
+.side-links a[aria-current="page"] { text-decoration-color: var(--ink); }
+.doc-legal .doc-side { margin-top: 48px; }
+@media (min-width: 62rem) {
+  .doc-legal .doc-side { grid-row: 1; grid-column: 1 / span 3; margin-top: 0; }
+  .doc-legal .prose { grid-row: 1; grid-column: 5 / span 8; }
+}
+.prose > .meta { margin-bottom: 1.2em; }
+.aside-h { font: 400 1.25rem/1 var(--pixel); letter-spacing: 0.06em; text-transform: uppercase; color: var(--orange-ink); margin: 0 0 6px; }
+.contact-aside p { margin: 0; }
+.cf-turnstile { min-height: 65px; }
