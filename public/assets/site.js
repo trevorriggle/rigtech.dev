@@ -87,25 +87,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-/* Games dropdown in the main nav. Hover opens it on desktop (CSS); the button toggles it
-   for touch and keyboard. Escape or a click elsewhere closes it. */
-document.addEventListener("DOMContentLoaded", function () {
-  Array.prototype.forEach.call(document.querySelectorAll(".nav-drop"), function (drop) {
-    var btn = drop.querySelector(".nav-drop-btn");
-    if (!btn) return;
-    function set(open) {
-      drop.classList.toggle("open", open);
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
-    }
-    btn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      set(btn.getAttribute("aria-expanded") !== "true");
-    });
-    document.addEventListener("click", function (e) { if (!drop.contains(e.target)) set(false); });
-    drop.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && btn.getAttribute("aria-expanded") === "true") { set(false); btn.focus(); }
-    });
-    drop.addEventListener("focusout", function (e) { if (!drop.contains(e.relatedTarget)) set(false); });
-  });
-});

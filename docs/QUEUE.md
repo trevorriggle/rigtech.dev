@@ -35,6 +35,9 @@
 - CoinOp: iPad screenshots replaced with six iPhone captures; "what makes it different" rebuilt as a 3-column grid (fixes the broken 4→1 numeral); App Store "coming" box removed; iPhone and iPad everywhere except the legal text.
 - Press kit rebuilt as one row per section (label left, content right).
 - Contact form: new "Web design project" subject (contact.html + src/contact.js).
+- Favicon replaced: a white Tomorrow Bold R on a black square (favicon.svg drawn from the font's outline, plus favicon-32.png and apple-touch-icon.png).
+- Games tab links to /games; hovering it lists the three games (no "All games" item, no script).
+- Contact form: production returns "isn't set up yet" because RESEND_API_KEY and/or TURNSTILE_SECRET_KEY are not set on the deployed Worker. Needs `npx wrangler secret put` for both (see README).
 - docs/site-screens/ predates this round and is out of date.
 
 ## Decisions log

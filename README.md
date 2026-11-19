@@ -7,7 +7,7 @@ The only server code is `src/worker.js`, which handles `POST /api/contact`; ever
 public/                 ← deployed (assets.directory in wrangler.jsonc)
   index.html            /                 studio home
   web-design.html       /web-design       web design + American Scientific case study
-  games.html            /games            all games (also the Games dropdown in the nav)
+  games.html            /games            all games (the Games tab links here)
   apps.html             /apps             apps (DrawEvolve)
   drawevolve.html       /drawevolve       DrawEvolve
   clawtastrophe.html    /clawtastrophe    Clawtastrophe
@@ -52,8 +52,8 @@ Search the code for `PLACEHOLDER` and `SLOT` to find what's left to fill in.
 ## Design
 Read `docs/DESIGN.md` before changing the look. Every page shares the header, footer and `site.css`;
 there's no build step, so a header/footer change has to be made in each HTML file.
-The main nav is Web Design · Games (dropdown: All games, CoinOp, thoosie, Clawtastrophe) · Apps · Contact;
-the dropdown opens on hover and on click/tap (`site.js`).
+The main nav is Web Design · Games · Apps · Contact. Clicking Games goes to /games; hovering it (or tabbing
+into it) shows CoinOp, thoosie and Clawtastrophe. CSS only, no script.
 
 Galleries (`.seq` in site.css) are a port of the trevorriggle.design DrawEvolve scroll sequence: a swipe
 strip on phones, a pinned scroll sequence on wide screens with scroll-driven animation, a grid otherwise.

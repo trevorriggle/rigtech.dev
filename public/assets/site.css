@@ -19,6 +19,7 @@
   --cab-mute: #b8abc6;
 
   --stage: 1200px;
+  --head-gap: clamp(24px, 3vw, 44px); /* space between the nav and every page's first heading */
   --gutter: 20px;
   --display: "Tomorrow", ui-monospace, "SF Mono", Menlo, monospace;
   --body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -112,9 +113,9 @@ p { margin: 0 0 1em; }
 .site-nav > a[aria-current="page"], .nav-drop-btn.is-current { text-decoration: underline; text-decoration-color: var(--ink); text-decoration-thickness: 2px; }
 .site-nav > a.is-section { text-decoration: underline; text-decoration-color: var(--ink); text-decoration-thickness: 2px; }
 .nav-drop { position: relative; }
-.nav-drop-btn { display: inline-flex; align-items: center; gap: 7px; background: none; border: 0; padding-inline: 0; cursor: pointer; }
+.nav-drop-btn { display: inline-flex; align-items: center; gap: 7px; }
 .caret { width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-2px) rotate(45deg); }
-.nav-drop.open .caret { transform: translateY(2px) rotate(225deg); }
+
 .nav-menu {
   display: none;
   position: absolute;
@@ -129,13 +130,12 @@ p { margin: 0 0 1em; }
   box-shadow: 4px 4px 0 var(--ink);
 }
 .nav-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 14px; } /* hover bridge */
-.nav-drop.open .nav-menu { display: block; }
+/* Hover shows the games; keyboard focus inside the dropdown shows them too. Clicking Games goes to /games. */
 @media (hover: hover) { .nav-drop:hover .nav-menu { display: block; } }
+.nav-drop:focus-within .nav-menu { display: block; }
 .nav-menu a { display: block; padding: 9px 18px; font: 600 1rem/1.2 var(--display); text-decoration: none; }
 .nav-menu a:hover { background: var(--paper-2); color: var(--ink); }
 .nav-menu a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--ink); }
-.nav-menu li:first-child a { color: var(--ink-2); font-weight: 500; }
-.nav-menu li:first-child { border-bottom: 1px solid var(--rule); margin-bottom: 4px; padding-bottom: 4px; }
 /* Phones: the nav gets its own row under the wordmark. */
 @media (max-width: 43.99rem) {
   .site-header { padding-block: 14px 6px; row-gap: 6px; }
@@ -234,7 +234,7 @@ button.btn { font-family: var(--display); }
 
 /* ---------- Home: intro ---------- */
 /* One column, one left edge: headline, then the line under it. */
-.intro { padding-block: clamp(44px, 8vw, 104px) clamp(40px, 6vw, 80px); }
+.intro { padding-block: var(--head-gap) clamp(40px, 6vw, 80px); }
 .intro h1 { max-width: 17ch; }
 .intro h1 em { font-style: normal; color: var(--orange); }
 .intro-sub { max-width: 52ch; margin: clamp(20px, 2.5vw, 30px) 0 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem); color: var(--ink-2); }
@@ -429,7 +429,8 @@ button.btn { font-family: var(--display); }
 /* Wide screens, no scroll-driven animation or reduced motion: a grid. */
 @media (min-width: 62rem) {
   .seq-shots { margin: 0; padding: 0; overflow: visible; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 24px; }
-  .seq.landscape .seq-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .seq.landscape .seq-shots { grid-template-columns: minmax(0, 1fr); gap: 56px; }
+  .seq.landscape .seq-cap { max-width: 60ch; }
   .seq.phone .seq-shots { grid-template-columns: repeat(3, minmax(0, 280px)); justify-content: center; gap: 40px 48px; }
   .seq-hint { display: none; }
 }
@@ -439,8 +440,10 @@ button.btn { font-family: var(--display); }
     /* The stage is shorter than the screen and pinned in the middle of it, so it never butts
        against the next section. Shots cut over the first 90% of the run; the last 10% is a
        hold on the finished last shot before the stage lets go. */
-    .seq { --stage-h: min(86vh, 860px); height: calc(var(--n) * 70vh + var(--stage-h)); view-timeline-name: --seq; view-timeline-axis: block; }
-    .seq-stage { position: sticky; top: calc((100vh - var(--stage-h)) / 2); height: var(--stage-h); overflow: hidden; }
+    .seq { --stage-h: 86vh; --stage-w: min(calc(100vw - 64px), 1680px); height: calc(var(--n) * 70vh + var(--stage-h)); view-timeline-name: --seq; view-timeline-axis: block; }
+    /* The stage is sized by the screen, not the 1200px page: full height (less a margin) and
+       up to 1680px wide, centred on the page. */
+    .seq-stage { position: sticky; top: calc((100vh - var(--stage-h)) / 2); height: var(--stage-h); width: var(--stage-w); margin-left: calc(50% - var(--stage-w) / 2); overflow: hidden; }
     .seq-shots { position: relative; display: block; height: 100%; }
     .seq-shot {
       position: absolute;
@@ -461,7 +464,7 @@ button.btn { font-family: var(--display); }
     .seq-side { flex-direction: column; justify-content: center; }
     .seq-plate { width: min(100%, calc((var(--stage-h) - 4rem) * var(--ar))); }
     .seq-index { padding-bottom: 16px; margin-bottom: 20px; border-bottom: 2px solid var(--seq-rule); font-size: 1.5rem; }
-    .seq-cap { margin: 0; font: 600 clamp(1.3rem, 1rem + 0.9vw, 1.75rem)/1.25 var(--display); letter-spacing: -0.005em; max-width: 22ch; }
+    .seq-cap { margin: 0; font: 600 clamp(1.3rem, 0.9rem + 0.9vw, 2.1rem)/1.25 var(--display); letter-spacing: -0.005em; max-width: 22ch; }
     .seq-bar { display: block; position: absolute; inset: auto -2px -14px -2px; height: 8px; background: var(--plate-bg); overflow: hidden; }
     .seq-bar span {
       display: block;
@@ -473,10 +476,23 @@ button.btn { font-family: var(--display); }
       animation-timeline: --seq;
       animation-range: contain calc(var(--start) * 0.9) contain calc(var(--end) * 0.9);
     }
-    .seq.landscape .seq-shot { grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); }
+    /* Wide shots (desktop sites, thoosie): sized by the screen, not the 1200px page. The stage
+       breaks out of the page container, the shot takes as much of the screen as the height
+       allows, and the caption sits under it, lined up with the shot's left edge. */
+    .seq.landscape {
+      --stage-h: 92vh;
+      --plate-w: min(var(--stage-w), calc((var(--stage-h) - 8.5rem) * var(--sar, 1.95)));
+    }
+    .seq.landscape .seq-shot { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; background: var(--seq-bg, var(--paper)); }
+    .seq.landscape .seq-fig, .seq.landscape .seq-side { width: var(--plate-w); height: auto; background: none; }
+    .seq.landscape .seq-plate { width: 100%; }
+    .seq.landscape .seq-side { flex-direction: row; align-items: baseline; gap: 20px; }
+    .seq.landscape .seq-index { flex: none; padding: 0; margin: 0; border: 0; font-size: 1.4rem; }
+    .seq.landscape .seq-cap { max-width: 58ch; font-size: clamp(1.15rem, 0.95rem + 0.5vw, 1.4rem); }
+    .on-dark .seq.landscape .seq-shot, .seq.landscape.on-dark .seq-shot { background: var(--cab); }
     /* Phone shots: the shot and its caption sit side by side in the middle of the stage
        instead of the shot hugging a wide empty column. */
-    .seq.phone { --stage-h: min(88vh, 900px); }
+    .seq.phone { --stage-h: 90vh; }
     .seq.phone .seq-shot { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: clamp(40px, 5vw, 80px); }
     .seq.phone .seq-plate { width: min(100%, calc((var(--stage-h) - 3rem) * var(--ar))); }
     .on-dark .seq-fig, .on-dark .seq-side, .seq.on-dark .seq-fig, .seq.on-dark .seq-side { background: var(--cab); }
@@ -486,18 +502,22 @@ button.btn { font-family: var(--display); }
 @keyframes seq-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
 /* ---------- Game pages ---------- */
-.g-hero { padding-block: 36px 48px; }
+.g-hero { padding-block: var(--head-gap) 48px; }
 .g-hero-grid { display: grid; gap: 36px; }
 .g-title-logo { width: min(100%, 560px); height: auto; image-rendering: pixelated; margin-left: -1.5%; }
 .g-pitch { font: 600 clamp(1.6rem, 1.1rem + 2.2vw, 2.7rem)/1.12 var(--display); max-width: 19ch; margin: 22px 0 18px; text-wrap: balance; }
 .g-lede { max-width: 46ch; }
 .on-dark .g-lede { color: var(--cab-mute); }
 @media (min-width: 62rem) {
-  .g-hero { padding-block: 64px 80px; }
+  .g-hero { padding-block: var(--head-gap) 80px; }
   .g-hero-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: center; }
   .g-hero-copy { grid-column: 1 / span 7; }
   .g-hero-media { grid-column: 9 / span 4; }
+  /* Landscape hero art (DrawEvolve's desk photo, Clawtastrophe's card): give the art the wide side. */
+  .g-hero-grid.wide-media .g-hero-copy { grid-column: 1 / span 5; }
+  .g-hero-grid.wide-media .g-hero-media { grid-column: 6 / span 7; }
 }
+.g-hero-media img, .g-hero-media picture { width: 100%; height: auto; }
 
 /* Trailer: vertical video in a pixel frame; poster + label until the file exists. */
 .trailer { position: relative; margin: 0 auto; max-width: min(300px, 78vw); }
@@ -546,7 +566,7 @@ button.btn { font-family: var(--display); }
 .copybox-label { display: flex; justify-content: space-between; gap: 12px; margin: 0 0 10px; }
 
 /* ---------- Prose (legal, support, contact) ---------- */
-.prose { max-width: 68ch; padding-top: clamp(32px, 6vw, 64px); }
+.prose { max-width: 68ch; padding-top: var(--head-gap); }
 .prose h1 { font-size: clamp(2.2rem, 1.6rem + 3vw, 3.6rem); margin-bottom: 18px; }
 .prose h2 { font-size: clamp(1.3rem, 1.15rem + 0.7vw, 1.65rem); margin: 2.4rem 0 0.7rem; padding-top: 1.2rem; border-top: 2px solid var(--ink); }
 .prose h3 { font-size: 1.1rem; margin: 1.6rem 0 0.4rem; }
@@ -571,13 +591,13 @@ button.btn { font-family: var(--display); }
 /* Two-column prose layout for legal pages on wide screens (title column + text). */
 @media (min-width: 62rem) {
   .doc { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
-  .doc > .doc-side { grid-column: 1 / span 4; padding-top: clamp(32px, 6vw, 64px); }
+  .doc > .doc-side { grid-column: 1 / span 4; padding-top: var(--head-gap); }
   .doc > .doc-side .sticky { position: sticky; top: 24px; }
   .doc > .prose { grid-column: 5 / span 8; }
 }
 
 /* ---------- 404 ---------- */
-.notfound { padding-block: clamp(48px, 10vw, 120px) 24px; display: grid; gap: 28px; }
+.notfound { padding-block: var(--head-gap) 24px; display: grid; gap: 28px; }
 .notfound .code { font: 400 clamp(6rem, 4rem + 12vw, 13rem)/0.8 var(--pixel); color: var(--orange); margin: 0; letter-spacing: 0.02em; }
 .notfound h1 { max-width: 14ch; }
 @media (min-width: 62rem) { .notfound { grid-template-columns: 5fr 7fr; align-items: center; column-gap: 48px; } }
@@ -611,7 +631,7 @@ button.btn { font-family: var(--display); }
 @media (min-width: 62rem) {
   .contact-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
   .contact-grid > .prose { grid-column: 1 / span 7; }
-  .contact-aside { grid-column: 9 / span 4; padding-top: clamp(32px, 6vw, 64px); }
+  .contact-aside { grid-column: 9 / span 4; padding-top: var(--head-gap); }
 }
 
 /* ---------- CoinOp page ---------- */
@@ -623,7 +643,7 @@ button.btn { font-family: var(--display); }
 .on-dark .seq-plate { border-color: var(--cab-line); }
 
 /* ---------- Press kit: one row per section, label left, content right ---------- */
-.kit-head { padding-block: clamp(36px, 6vw, 72px) clamp(28px, 4vw, 48px); }
+.kit-head { padding-block: var(--head-gap) clamp(28px, 4vw, 48px); }
 .kit-head h1 { font-size: clamp(2.4rem, 1.6rem + 3.6vw, 4.2rem); }
 .kit-head .lede { margin: 16px 0 0; }
 .kit-row { display: grid; gap: 18px; padding-block: 32px; border-top: 2px solid var(--ink); }
@@ -649,10 +669,10 @@ button.btn { font-family: var(--display); }
 @media (min-width: 48rem) { .dl-shots { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 .dl .thumb .ph { width: 100%; height: 100%; aspect-ratio: auto; border: 0; font-size: 0.95rem; }
 
-.doc-side { padding-top: clamp(32px, 6vw, 64px); }
+.doc-side { padding-top: var(--head-gap); }
 
 /* ---------- Web design ---------- */
-.wd-hero { padding-block: clamp(44px, 8vw, 104px) clamp(36px, 5vw, 64px); }
+.wd-hero { padding-block: var(--head-gap) clamp(36px, 5vw, 64px); }
 .wd-hero h1 { max-width: 16ch; }
 .wd-hero .lede { margin: clamp(20px, 2.5vw, 30px) 0 0; max-width: 54ch; }
 .case-head .token { margin-bottom: 12px; }
@@ -687,7 +707,8 @@ button.btn { font-family: var(--display); }
 /* ---------- thoosie page ---------- */
 .th-head { display: grid; gap: 20px; }
 .th-logo { width: min(100%, 520px); height: auto; margin-top: 18px; }
-.th-copy .g-pitch { margin-top: 0; }
+.th-head .g-pitch { margin: 18px 0 0; }
+.th-copy .g-lede { margin-top: 0; }
 .th-video { margin: 36px 0 0; }
 .th-video video { width: 100%; height: auto; aspect-ratio: 960 / 492; background: var(--paper-2); }
 @media (min-width: 62rem) {
