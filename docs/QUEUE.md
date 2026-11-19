@@ -1,8 +1,8 @@
 # rigtech.dev overhaul: work queue
 
 ## HANDOFF
-- **Done:** Q1–Q11 (assets, design system, carousel, home, CoinOp, press kit, thoosie, restyles, meta)
-- **Next:** Q12 full check + DO NOT BREAK list, Q9 thoosie, Q10 restyles, Q11 meta/OG
+- **Done:** Q1–Q12 (everything built and checked)
+- **Next:** Q13 README + asset READMEs + placeholder summary, Q9 thoosie, Q10 restyles, Q11 meta/OG
 - **Local preview:** `npx wrangler dev --port 8787`; review screenshots via Playwright (scratch tooling, not committed)
 - **Open decisions:** see the Decisions log at the bottom.
 
@@ -21,7 +21,7 @@
 | Q9 | thoosie page (/thoosie), 2 review rounds | DONE (see git log) |
 | Q10 | Restyle /contact, /coinop/support, /privacy, /terms, 404 (policy text unchanged), 2 review rounds | DONE (see git log) |
 | Q11 | OG/Twitter images (home, coinop, thoosie), favicon set, sitemap.xml, robots.txt | DONE (see git log) |
-| Q12 | Local run, phone + desktop check of every page, DO NOT BREAK checklist | TODO |
+| Q12 | Local run, phone + desktop check of every page, DO NOT BREAK checklist | DONE (see git log) |
 | Q13 | README + summary of placeholders | TODO |
 | Q14 | Visual-quality brief: review loop per page (phone + desktop, ≥2 revisions), final screens to docs/site-screens/ | ONGOING (per page) |
 
@@ -43,3 +43,13 @@
 - Legal/support pages: the `<article>` block of each is byte-identical to before (checked with cmp); only head, header, footer and a side card were changed. Contact form markup is identical except Turnstile `data-theme` dark → light to match the paper page.
 - OG images: home.png for /, /contact; coinop.png for /coinop, /coinop/press, /support, /privacy, /terms; thoosie.png for /thoosie. Rendered from HTML with the site fonts (template kept in scratch, not committed). 404 is noindex with no OG tags.
 - Favicon redrawn as a pixel-art R plus the orange cursor (SVG, 32px PNG, 180px apple-touch-icon).
+
+## DO NOT BREAK checklist (Q12, `wrangler dev`, 2026-11-19)
+- [x] /coinop/privacy, /coinop/terms, /coinop/support, /coinop, /thoosie, /contact: 200 text/html, same paths. `/coinop.html` still redirects to `/coinop`.
+- [x] /app-ads.txt: 200 `text/plain; charset=utf-8`, byte-identical to the original.
+- [x] Contact form: markup, field names, Turnstile site key, contact.js, src/worker.js and src/contact.js unchanged (only the widget theme is light now). GET /api/contact → 405; POST reaches the handler (locally returns its "not set up" 500 because .dev.vars has no secrets, as before).
+- [x] wrangler.jsonc, public/_headers, public/.assetsignore: unchanged. Unknown paths → 404 status with the restyled 404 page.
+- [x] Wordmark: "RIG Tech" in Tomorrow, types in once per session, cursor blinks; static under reduced motion.
+- [x] Every page at 390px and 1440px: no horizontal overflow, one h1, every img has alt, no JS errors, no broken internal links or assets (except the expected trailer.mp4 and Clawtastrophe card placeholders).
+- [x] Reduced motion: no typing/blinking, still coin, still CoinOp logo (PNG), no video autoplay, galleries as strip/grid.
+- [x] Contrast: all text pairs ≥ 4.5:1 except orange display type (3.2:1, large text only).

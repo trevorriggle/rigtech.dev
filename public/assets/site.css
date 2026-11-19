@@ -188,7 +188,7 @@ button.btn { font-family: var(--display); }
 .coin.x2 { width: 80px; height: 80px; background-size: 2000px 80px; animation-name: coin-spin-2; }
 @keyframes coin-spin { to { background-position: -1000px 0; } }
 @keyframes coin-spin-2 { to { background-position: -2000px 0; } }
-@media (prefers-reduced-motion: reduce) { .coin { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .coin, .coin.x2 { animation: none; } }
 
 .pixelated { image-rendering: pixelated; }
 
