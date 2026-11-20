@@ -1,5 +1,6 @@
 # Clawtastrophe
 
-PLACEHOLDER: save the card art here as `card.jpg`, 1600×900 (16:9), JPG ~80% quality, under ~250 KB.
-The home page, /games and /clawtastrophe show a striped "art goes here" box until the file exists,
-then the image replaces it.
+| File | Used for |
+|---|---|
+| `logo.png`, `logo.webp` | Wordmark in the /clawtastrophe hero (1040×129, transparent, shown at up to 520px wide) |
+| `card.jpg` | Card art, 1600×900 (16:9): home page card, /games row, /clawtastrophe hero. To swap it, keep the size and name (JPG, under ~250 KB). |

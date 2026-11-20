@@ -8,7 +8,8 @@
 | `coinop/` | CoinOp art, screenshots, press downloads (see its README) |
 | `thoosie/` | thoosie logo, screenshots, gameplay loop |
 | `drawevolve/` | DrawEvolve logo, desk photo and screenshots (/drawevolve, /apps, home) |
-| `web/amsci/` | American Scientific before/after screenshots (/web-design, home), from trevorriggle.design |
+| `web/amsci/` | American Scientific before/after screenshots (/web-design/american-scientific, /web-design, home), from trevorriggle.design |
+| `web/trd/` | trevorriggle.design screenshots, 1280×658 viewport at 1.25x (/web-design/trevorriggle-design, /web-design) |
 | `clawtastrophe/` | **Empty: add `card.jpg`** (see its README) |
 
 Images come from the game repos and trevorriggle.design, resized and converted: AVIF + WebP at two

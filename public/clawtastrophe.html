@@ -19,7 +19,7 @@
 <meta name="twitter:title" content="Clawtastrophe">
 <meta name="twitter:description" content="A claw machine, a crooked blackjack table and $15. Play in your browser on itch.io.">
 <meta name="twitter:image" content="https://rigtech.dev/assets/og/home.png">
-<meta name="theme-color" content="#efe7d3">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -34,7 +34,13 @@
 <header class="site-header wrap">
   <a class="wordmark" href="/" aria-label="RIG Tech home"><span class="wm-text" aria-hidden="true">RIG Tech</span><span class="wm-cursor" aria-hidden="true"></span></a>
   <nav class="site-nav" aria-label="Main">
-    <a href="/web-design">Web Design</a>
+    <div class="nav-drop">
+      <a class="nav-drop-btn" href="/web-design">Web Design<span class="caret" aria-hidden="true"></span></a>
+      <ul class="nav-menu" id="nav-web">
+        <li><a href="/web-design/american-scientific">American Scientific</a></li>
+        <li><a href="/web-design/trevorriggle-design">trevorriggle.design</a></li>
+      </ul>
+    </div>
     <div class="nav-drop">
       <a class="nav-drop-btn is-current" href="/games">Games<span class="caret" aria-hidden="true"></span></a>
       <ul class="nav-menu" id="nav-games">
@@ -52,7 +58,10 @@
     <div class="g-hero-grid wide-media">
       <div class="g-hero-copy">
         <span class="token live">Live &middot; browser &middot; itch.io</span>
-        <h1 id="cl-h" style="margin-top:16px">Clawtastrophe</h1>
+        <h1 id="cl-h" style="margin-top:16px"><span class="sr-only">Clawtastrophe</span><picture>
+          <source type="image/webp" srcset="/assets/clawtastrophe/logo.webp">
+          <img class="cl-logo" src="/assets/clawtastrophe/logo.png" alt="" width="1040" height="129">
+        </picture></h1>
         <p class="g-pitch">Real physics, real odds, real bad decisions.</p>
         <p class="g-lede">You walk into an arcade with $15. The claw machine is full of energy drinks, whiskey, cigarettes, scratchers and a few stacks of cash. The blackjack table pays 6:5, hits soft 17, and has never once lost money.</p>
         <div class="actions">
@@ -60,8 +69,7 @@
         </div>
       </div>
       <figure class="g-hero-media" style="margin:0">
-        <!-- PLACEHOLDER: save a 1600x900 JPG at public/assets/clawtastrophe/card.jpg and it replaces this box (here, /games and the home page). -->
-        <div class="ph" style="--ar:16/9"><img src="/assets/clawtastrophe/card.jpg" alt="Clawtastrophe: a claw machine stocked with energy drinks, scratchers and cash" width="1600" height="900" loading="lazy" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-label">Clawtastrophe art<br>goes here (16:9)</span></div>
+        <div class="ph" style="--ar:16/9"><img src="/assets/clawtastrophe/card.jpg" alt="Clawtastrophe: a pink claw machine piled with prizes next to a green blackjack table, on a confetti-print arcade carpet" width="1600" height="900" loading="lazy" onload="this.parentNode.classList.add('loaded')" onerror="this.remove()"><span class="ph-label">Clawtastrophe art<br>goes here (16:9)</span></div>
       </figure>
     </div>
   </section>

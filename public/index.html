@@ -19,7 +19,7 @@
 <meta name="twitter:title" content="RIG Tech: websites, games and apps">
 <meta name="twitter:description" content="A studio in Columbus, Ohio. CoinOp launches December 16 on iPhone and iPad.">
 <meta name="twitter:image" content="https://rigtech.dev/assets/og/home.png">
-<meta name="theme-color" content="#efe7d3">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -34,7 +34,13 @@
 <header class="site-header wrap">
   <a class="wordmark" href="/" aria-label="RIG Tech home"><span class="wm-text" aria-hidden="true">RIG Tech</span><span class="wm-cursor" aria-hidden="true"></span></a>
   <nav class="site-nav" aria-label="Main">
-    <a href="/web-design">Web Design</a>
+    <div class="nav-drop">
+      <a class="nav-drop-btn" href="/web-design">Web Design<span class="caret" aria-hidden="true"></span></a>
+      <ul class="nav-menu" id="nav-web">
+        <li><a href="/web-design/american-scientific">American Scientific</a></li>
+        <li><a href="/web-design/trevorriggle-design">trevorriggle.design</a></li>
+      </ul>
+    </div>
     <div class="nav-drop">
       <a class="nav-drop-btn" href="/games">Games<span class="caret" aria-hidden="true"></span></a>
       <ul class="nav-menu" id="nav-games">
@@ -94,7 +100,7 @@
   </section>
 
   <section class="sec wrap" id="web" aria-labelledby="web-h">
-    <div class="sec-head"><h2 id="web-h">Web design</h2></div>
+    <div class="sec-head"><h2 id="web-h">Web design</h2><p>Websites, and the design work around them: logos, menus, catalogs and print.</p></div>
     <article class="row" aria-labelledby="web-1">
       <figure class="row-art frame-ink">
         <picture>
@@ -105,9 +111,9 @@
       </figure>
       <div class="row-copy">
         <span class="token live">Live</span>
-        <h3 id="web-1"><a href="/web-design">American Scientific, rebuilt</a></h3>
-        <p>A wholesaler's website that guessed at prices its ERP already knew. Now it asks the ERP, per account, and shows the real number.</p>
-        <div class="actions"><a class="btn btn-primary" href="/web-design">See the redesign <span class="arr" aria-hidden="true">&rarr;</span></a></div>
+        <h3 id="web-1"><a href="/web-design/american-scientific">American Scientific, rebuilt</a></h3>
+        <p>A new website for a wholesale science supplier. Signed-in customers see their own prices, pulled straight from the company's records.</p>
+        <div class="actions"><a class="btn btn-primary" href="/web-design/american-scientific">See the redesign <span class="arr" aria-hidden="true">&rarr;</span></a><a class="textlink" href="/web-design">All web design</a></div>
       </div>
     </article>
   </section>

@@ -2,11 +2,11 @@
    Paper page, ink type, the games' colours as spot colours; CoinOp gets a dark cabinet panel. */
 
 :root {
-  --paper: #efe7d3;
-  --paper-2: #e4d9bf;
+  --paper: #ffffff;
+  --paper-2: #f2f2f2;
   --ink: #1b1611;
   --ink-2: #4d4436;
-  --rule: #c9bc9b;
+  --rule: #d6d6d6;
   --orange: #d9560f;
   --orange-ink: #a63f06;
   --gold: #ffc531;
@@ -125,7 +125,7 @@ p { margin: 0 0 1em; }
   margin: 0;
   padding: 8px 0;
   list-style: none;
-  background: #fbf6ea;
+  background: #ffffff;
   border: 2px solid var(--ink);
   box-shadow: 4px 4px 0 var(--ink);
 }
@@ -152,14 +152,15 @@ p { margin: 0 0 1em; }
 .foot-mark { font: 700 clamp(2.2rem, 1.4rem + 4vw, 4rem)/1 var(--display); letter-spacing: -0.01em; margin: 0 0 12px; }
 .foot-mark span { color: var(--gold); }
 .foot-line { max-width: 34ch; color: #d7ccb5; margin: 0; }
-.foot-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.foot-cols { display: flex; flex-wrap: wrap; gap: 32px 56px; }
 .foot h2 { font: 400 1.15rem/1 var(--pixel); letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); margin: 0 0 10px; }
-.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.foot li { white-space: nowrap; line-height: 1.3; }
 .foot-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 18px 28px; border-top: 1px solid #4a4134; color: #bfb39b; font-size: 0.9rem; }
 .foot-base p { margin: 0; }
 @media (min-width: 62rem) {
   .foot { grid-template-columns: 5fr 7fr; align-items: end; padding-block: 72px 48px; }
-  .foot-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .foot-cols { justify-content: flex-end; column-gap: clamp(40px, 5vw, 80px); }
 }
 
 /* ---------- Buttons: arcade buttons with a hard lip ---------- */
@@ -182,7 +183,7 @@ p { margin: 0 0 1em; }
   cursor: pointer;
   transition: transform 80ms ease-out, box-shadow 80ms ease-out;
 }
-.btn:hover { color: var(--ink); background: #fff8e8; }
+.btn:hover { color: var(--ink); background: #f2f2f2; }
 .btn:active { transform: translateY(4px); box-shadow: 0 0 0 var(--lip); }
 .btn-primary { background: var(--gold); }
 .btn-primary:hover { background: #ffd35e; }
@@ -561,7 +562,7 @@ button.btn { font-family: var(--display); }
 .dl-meta { font-size: 0.85rem; color: var(--ink-2); }
 @media (min-width: 48rem) { .dl { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
-.copybox { border: 2px solid var(--ink); background: #fbf6ea; padding: 20px 22px; }
+.copybox { border: 2px solid var(--ink); background: #ffffff; padding: 20px 22px; }
 .copybox > :last-child { margin-bottom: 0; }
 .copybox-label { display: flex; justify-content: space-between; gap: 12px; margin: 0 0 10px; }
 
@@ -577,7 +578,7 @@ button.btn { font-family: var(--display); }
 .meta { color: var(--ink-2); font-size: 0.92rem; margin: 0; }
 .crumbs { font: 400 1.2rem/1 var(--pixel); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 14px; }
 .crumbs a { color: var(--ink-2); }
-.callout { padding: 16px 20px; border: 2px solid var(--ink); background: #fbf6ea; box-shadow: 4px 4px 0 var(--ink); }
+.callout { padding: 16px 20px; border: 2px solid var(--ink); background: #ffffff; box-shadow: 4px 4px 0 var(--ink); }
 .callout > :first-child { margin-top: 0; }
 .callout > :last-child { margin-bottom: 0; }
 .prose .caps { font-weight: 700; }
@@ -610,7 +611,7 @@ button.btn { font-family: var(--display); }
   width: 100%;
   min-height: 50px;
   padding: 12px 14px;
-  background: #fbf6ea;
+  background: #ffffff;
   border: 2px solid var(--ink);
   border-radius: 0;
   color: var(--ink);
@@ -673,8 +674,9 @@ button.btn { font-family: var(--display); }
 
 /* ---------- Web design ---------- */
 .wd-hero { padding-block: var(--head-gap) clamp(36px, 5vw, 64px); }
-.wd-hero h1 { max-width: 16ch; }
-.wd-hero .lede { margin: clamp(20px, 2.5vw, 30px) 0 0; max-width: 54ch; }
+.wd-hero h1 { max-width: 24ch; font-size: clamp(2.1rem, 1.3rem + 3.4vw, 4rem); } /* same as the home intro */
+.wd-hero .sec-head p { max-width: 52ch; margin: clamp(20px, 2.5vw, 30px) 0 0; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem); }
+.wd-hero .lede { margin: clamp(20px, 2.5vw, 30px) 0 0; max-width: 52ch; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem); }
 .case-head .token { margin-bottom: 12px; }
 .case-head h2 { max-width: 20ch; }
 .blocks { display: grid; gap: 36px 40px; margin-top: clamp(48px, 7vw, 88px); }
@@ -704,6 +706,9 @@ button.btn { font-family: var(--display); }
 .cta-band h2 { max-width: 20ch; }
 .cta-band p { margin: 14px 0 0; color: var(--ink-2); max-width: 50ch; }
 
+/* ---------- Clawtastrophe page ---------- */
+.cl-logo { width: min(100%, 520px); height: auto; }
+
 /* ---------- thoosie page ---------- */
 .th-head { display: grid; gap: 20px; }
 .th-logo { width: min(100%, 520px); height: auto; margin-top: 18px; }
@@ -719,7 +724,7 @@ button.btn { font-family: var(--display); }
 }
 
 /* ---------- Legal / support pages ---------- */
-.side-card { border: 2px solid var(--ink); background: #fbf6ea; padding: 20px; box-shadow: 4px 4px 0 var(--ink); }
+.side-card { border: 2px solid var(--ink); background: #ffffff; padding: 20px; box-shadow: 4px 4px 0 var(--ink); }
 .side-card img { width: 64px; height: 64px; border: 2px solid var(--ink); }
 .side-title { font: 700 1.5rem/1 var(--display); margin: 14px 0 12px; }
 .side-links { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 2px; font-family: var(--display); font-weight: 600; }

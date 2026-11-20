@@ -5,7 +5,7 @@
 - **Next:** nothing queued. Waiting on the placeholders below., Q9 thoosie, Q10 restyles, Q11 meta/OG
 - **Local preview:** `npx wrangler dev --port 8787`; review screenshots via Playwright (scratch tooling, not committed)
 - **Open decisions:** see the Decisions log at the bottom.
-- **Placeholders for Trevor:** (1) `public/coinop/trailer.mp4`; (2) TestFlight link in coinop.html (remove `hidden`); (3) App Store badge + listing URL after launch; (4) Clawtastrophe card art at `public/assets/clawtastrophe/card.jpg`; (5) thoosie music credit names (thoosie.html); (6) optional: iPhone screenshots to replace the iPad captures.
+- **Placeholders for Trevor:** (1) `public/coinop/trailer.mp4`; (2) TestFlight link in coinop.html (remove `hidden`); (3) App Store badge + listing URL after launch; (4) ~~Clawtastrophe card art~~ done; (5) ~~thoosie music credit names~~ done: Travis Pierce, Sawyer Heilshorn; (6) optional: iPhone screenshots to replace the iPad captures.
 
 ## Items
 
@@ -39,6 +39,10 @@
 - Games tab links to /games; hovering it lists the three games (no "All games" item, no script).
 - Contact form: production returns "isn't set up yet" because RESEND_API_KEY and/or TURNSTILE_SECRET_KEY are not set on the deployed Worker. Needs `npx wrangler secret put` for both (see README).
 - docs/site-screens/ predates this round and is out of date.
+
+## Round 3 (2026-11-20): white page, Web Design section
+- Palette: page is white (#ffffff) instead of cream; paper-2 and rule are neutral greys. og/home.png recoloured to match and its headline reset to three lines (no widowed "Ohio.").
+- Web Design now works like Games: a nav dropdown, /web-design is an index of rows, and each project has its own page. American Scientific moved to /web-design/american-scientific; new /web-design/trevorriggle-design (screenshots captured from the live site into assets/web/trd/).
 
 ## Decisions log
 - Source repos cloned with `--depth 1` into `/tmp/assets` (outside the repo). Nothing from them is committed except optimized images listed in Q3.

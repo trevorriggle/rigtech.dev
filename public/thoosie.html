@@ -19,7 +19,7 @@
 <meta name="twitter:title" content="thoosie: draw a roller coaster, then ride it">
 <meta name="twitter:description" content="Free in your browser at thoosie.net.">
 <meta name="twitter:image" content="https://rigtech.dev/assets/og/thoosie.png">
-<meta name="theme-color" content="#efe7d3">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -34,7 +34,13 @@
 <header class="site-header wrap">
   <a class="wordmark" href="/" aria-label="RIG Tech home"><span class="wm-text" aria-hidden="true">RIG Tech</span><span class="wm-cursor" aria-hidden="true"></span></a>
   <nav class="site-nav" aria-label="Main">
-    <a href="/web-design">Web Design</a>
+    <div class="nav-drop">
+      <a class="nav-drop-btn" href="/web-design">Web Design<span class="caret" aria-hidden="true"></span></a>
+      <ul class="nav-menu" id="nav-web">
+        <li><a href="/web-design/american-scientific">American Scientific</a></li>
+        <li><a href="/web-design/trevorriggle-design">trevorriggle.design</a></li>
+      </ul>
+    </div>
     <div class="nav-drop">
       <a class="nav-drop-btn is-current" href="/games">Games<span class="caret" aria-hidden="true"></span></a>
       <ul class="nav-menu" id="nav-games">
@@ -133,8 +139,7 @@
       <div>
         <dl class="facts">
           <dt>Design, code</dt><dd>RIG Tech</dd>
-          <!-- PLACEHOLDER: real names / links for the music credits -->
-          <dt>Music</dt><dd>Friend Name One, Friend Name Two</dd>
+          <dt>Music</dt><dd>Travis Pierce, Sawyer Heilshorn</dd>
           <dt>Platforms</dt><dd>Any modern browser, on <a href="https://thoosie.net">thoosie.net</a> and <a href="https://pgskizzes.itch.io/thoosie">itch.io</a></dd>
           <dt>Price</dt><dd>Free</dd>
         </dl>

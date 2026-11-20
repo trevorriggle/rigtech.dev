@@ -12,11 +12,11 @@ instead of one block repeated, and keeps the studio separate from its launch.
 ## Palette (sampled from the games)
 | Token | Hex | From | Use |
 |---|---|---|---|
-| `--paper` | `#efe7d3` | thoosie's title screen | Page background |
-| `--paper-2` | `#e4d9bf` | — (one step darker) | Bands, the lab shelf, field backgrounds |
+| `--paper` | `#ffffff` | — (was cream #efe7d3; switched to white 2026-11-20) | Page background |
+| `--paper-2` | `#f2f2f2` | — (one step darker, neutral) | Bands, the lab shelf, field backgrounds |
 | `--ink` | `#1b1611` | — | Text, rules, button lips |
 | `--ink-2` | `#4d4436` | — | Secondary text (≈ 8:1 on paper) |
-| `--rule` | `#c9bc9b` | — | Hairlines |
+| `--rule` | `#d6d6d6` | — | Hairlines |
 | `--orange` | `#d9560f` | CoinOp's coin rim / thoosie's wordmark | Spot colour: links underline, "now" markers |
 | `--gold` | `#ffc531` | CoinOp coin face | Primary buttons, the cursor, focus ring on dark |
 | `--teal` | `#1e5f5b` | thoosie scaffolding | "Live" status |
