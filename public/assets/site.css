@@ -523,7 +523,10 @@ button.btn { font-family: var(--display); }
 /* Trailer: vertical video in a pixel frame; poster + label until the file exists. */
 .trailer { position: relative; margin: 0 auto; max-width: min(300px, 78vw); }
 @media (min-width: 62rem) { .trailer { max-width: 380px; } }
-.trailer video { width: 100%; height: auto; aspect-ratio: 886 / 1920; background: #000; object-fit: cover; }
+.trailer video { width: 100%; height: auto; aspect-ratio: 886 / 1920; background: #000; object-fit: contain; }
+/* Fullscreen: fit the whole vertical video on screen (letterboxed), never crop it. */
+.trailer video:fullscreen { width: 100%; height: 100%; aspect-ratio: auto; object-fit: contain; }
+.trailer video:-webkit-full-screen { width: 100%; height: 100%; aspect-ratio: auto; object-fit: contain; }
 .trailer-note { display: none; position: absolute; left: 12px; right: 12px; bottom: 12px; padding: 10px 12px; background: var(--gold); color: var(--ink); border: 2px solid var(--ink); font: 400 1.15rem/1.1 var(--pixel); letter-spacing: 0.05em; text-transform: uppercase; text-align: center; }
 .trailer.missing .trailer-note { display: block; }
 

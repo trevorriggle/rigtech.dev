@@ -70,7 +70,7 @@
   }
 })();
 
-/* CoinOp trailer: autoplay (muted) unless the visitor prefers reduced motion;
+/* CoinOp trailer: silent autoplay preview unless the visitor prefers reduced motion;
    if the file isn't there yet, show the poster with a "coming soon" note. */
 document.addEventListener("DOMContentLoaded", function () {
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -81,9 +81,33 @@ document.addEventListener("DOMContentLoaded", function () {
     if (src) src.addEventListener("error", missing);
     v.addEventListener("error", missing);
     if (v.networkState === 3) missing(); // NETWORK_NO_SOURCE: failed before we got here
+
+    // The silent autoplay is a preview. Once the visitor starts the video themselves
+    // (presses play, or goes fullscreen), they want to watch it: sound on, start from
+    // the top if the preview was running, and stop looping.
+    var autoStarting = false, watching = false;
+    function watch() {
+      if (watching) return;
+      watching = true;
+      if (!v.paused && v.currentTime > 0.5) v.currentTime = 0;
+      v.muted = false;
+      v.loop = false;
+    }
+    v.addEventListener("play", function () {
+      if (autoStarting) { autoStarting = false; return; }
+      watch();
+    });
+    function onFullscreen() {
+      if (document.fullscreenElement === v || document.webkitFullscreenElement === v) { watch(); v.play(); }
+    }
+    document.addEventListener("fullscreenchange", onFullscreen);
+    document.addEventListener("webkitfullscreenchange", onFullscreen);
+    v.addEventListener("webkitbeginfullscreen", function () { watch(); v.play(); }); // iPhone's native player
+
     if (!reduce) {
+      autoStarting = true;
       var p = v.play(); // starts loading too; a missing file just rejects
-      if (p && p.catch) p.catch(function () {});
+      if (p && p.catch) p.catch(function () { autoStarting = false; });
     }
   });
 });
